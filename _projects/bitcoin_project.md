@@ -4,7 +4,7 @@ subtitle: 'Am I able to beat baseline with Time-Series Machine-Learning models'
 date: 2021-11-14 00:00:00
 description: This project utilizes historic Bitcoin price data between the dates of January 1, 2012 and March 31, 2021 and tests multiple different machine learning models to try to predict the price against the test dataset and beat baseline.
 featured_image: '/images/bitcoin_price/btc_price_history.jpeg'
-thumbnail_image: '/images/bitcoin_price/bitcoin.jpeg'
+thumbnail_image: '/images/bitcoin_price/bitcoin_small.jpeg'
 ---
 
 ![bitcoin_image](/images/bitcoin_price/bitcoin.jpeg)

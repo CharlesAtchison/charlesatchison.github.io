@@ -140,7 +140,7 @@ These are the wonderful people that were apart of this awesome project.
 > - Standard demographic features like age, sex, and income are not drivers of overall pessimism. However, features like what will happen to the average family's standard of living, cost of healthcare, and the future of the public education system are highly correlated to overall pessimism.
 
 <div style="text-align: right"><a href='#toc'>Table of Contents</a></div>
-<hr style="border-top: 10px groove tan; margin-top: 1px; margin-bottom: 1px"></hr>
+<hr style="border-top: 10px groove tan; margin-top: 1px; margin-bottom: 1px">
 
 <a name='acquire'></a>
 # Acquire Data
@@ -164,7 +164,7 @@ These are the wonderful people that were apart of this awesome project.
 ### Dataset Format
 > - The dataset is formatted as a .sav file and can be read with the SPSS software program. The dataset can also be read with the R programming language, using the `foreign` package. R is a free, open-source program for statistical analysis that can be downloaded <a href="https://cran.r-project.org/" target="_blank">here</a>. It can also be used to export data in .csv format for use with other software programs.
 
-> **NOTE**: Using other tools to directly convert the .sav file to another format such as .csv may ERASE value
+> - **NOTE**: Using other tools to directly convert the .sav file to another format such as .csv may ERASE value
 labels. For this reason, it is highly recommended that you use either SPSS or R to read the file directly.
 
 <a name='data_dict'></a>
@@ -343,7 +343,7 @@ labels. For this reason, it is highly recommended that you use either SPSS or R 
 ## Feature Importance
 > - Of the models mentioned above, our best performing model was the Random Forest Classifier with depth 8, min samples leaf 3. We utilized this model to perform feature importance on the features in our dataset. We found that public education and U.S. economics are major drivers of pessimism. 
 
-![feature_importance_plot](images/feature_importance.jpeg)
+![feature_importance_plot](/images/american_attitudes/feature_importance.jpeg)
 
 <a name='top'></a>
 ## Modeling with just the top features
@@ -369,7 +369,7 @@ labels. For this reason, it is highly recommended that you use either SPSS or R 
 
 | Most Important Issues For Republicans   | Most Important Issues for Democrats |
 |-----------------------------------------|-------------------------------------|
-| ![Republicans](images/republicans.jpeg) | ![Democrats](images/democrats.jpeg) |
+| ![Republicans](/images/american_attitudes/republicans.jpeg) | ![Democrats](/images/american_attitudes/democrats.jpeg) |
 
 <a name='modeling_income_level'></a>
 ## Modeling the Income Level Subsets 
@@ -377,7 +377,7 @@ labels. For this reason, it is highly recommended that you use either SPSS or R 
 
 | Most Important Issues For Lower Income Level | Most Important Issues for Middle Income Level | Most Important Issues for Upper Income Level |
 |----------------------------------------------|-----------------------------------------------|----------------------------------------------|
-| ![lower](images/lower_income_group.jpeg)     | ![middle](images/middle_income_group.jpeg)    | ![higher](images/upper_income_group.jpeg)    |
+| ![lower](/images/american_attitudes/lower_income_group.jpeg)     | ![middle](/images/american_attitudes/middle_income_group.jpeg)    | ![higher](/images/american_attitudes/upper_income_group.jpeg)    |
 
 <a name='modeling_education_level'></a>
 ## Modeling the Education Level Subsets
@@ -442,5 +442,5 @@ labels. For this reason, it is highly recommended that you use either SPSS or R 
 
 ---
 **Citation**
->
-> <a href="https://www.pewresearch.org/social-trends/dataset/american-trends-panel-wave-41/">"American Trends Panel Wave 41.”</a> Pew Research Center, Washington, D.C. (December 27, 2018).
+
+> - <a href="https://www.pewresearch.org/social-trends/dataset/american-trends-panel-wave-41/">"American Trends Panel Wave 41.”</a> Pew Research Center, Washington, D.C. (December 27, 2018).

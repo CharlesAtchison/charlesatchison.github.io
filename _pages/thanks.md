@@ -1,7 +1,7 @@
 ---
 title: Thank you
 subtitle: Your message was sent successfully.
-description: A sleek, modern Jekyll theme for personal websites.
+description: A form submission for Charles Atchison
 featured_image: /images/demo/contact.jpg
 ---
 

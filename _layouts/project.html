@@ -12,7 +12,12 @@ layout: default
 
 		<h1>{{ page.title }}</h1>
 		<p>{{ page.subtitle }}</p>
-		<p><i class="tab fa-github"><a href="{{ page.github_link }}"></a></i></p>
+		<li class="socials__item">
+			<a href="{{ page.github_link }}" target="_blank" class="socials__item__link" title="{{ github_url | remove: '_url' | replace: '-', ' ' | capitalize }}">
+				<i class="fab fa-{{ github_url | replace: 'facebook', 'facebook-f' | remove: '_url' }}" aria-hidden="true"></i>
+			</a>
+		</li>
+		<p><i class="tab fa-Github"><a href="{{ page.github_link }}"></a></i></p>
 
 	</div>
 

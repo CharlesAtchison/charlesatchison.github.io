@@ -175,6 +175,7 @@ thumbnail_image: '/images/bitcoin_price/bitcoin.jpeg'
 ![heatmap](/images/bitcoin_price/avg_price_correlations.png)
 
 #### Correlations of Average Price
+
 | Column Name       |    avg_price |
 |:------------------|-------------:|
 | price_diff        |   0.0061726  |

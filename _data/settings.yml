@@ -57,6 +57,7 @@ social_settings:
   spotify_url: ''
   bandcamp_url: ''
   linkedin_url: 'https://www.linkedin.com/in/charleslatchison/'
+  contact_url: 'https://charlesatchison.github.io/contact'
 
 color_settings:
   background_color: '#ffffff'

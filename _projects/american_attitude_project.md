@@ -3,7 +3,8 @@ title: 'American Attitudes Project'
 subtitle: 'Is America’s Glass Half-Empty? Discovering drivers of America’s prospective thinking.'
 date: 2021-11-14 00:00:00
 description: Our team acquired survey data from the Pew Research Panel, and we explored the drivers of pessimism in American Prospective Attitudes. Understanding what most likely drives pessimistic or optimistic thinking about the future will help business leaders clarify strategies for moving forward and guide expectations of future success in the customers they serve, products offered, investments made, in Marketing and Sales, and throughout their business organization.
-featured_image: '/images/american_attitudes/glass_half_full.jpeg'
+featured_image: '/images/american_attitudes/pew_research_center.jpeg'
+thumbnail_image: '/images/american_attitudes/glass_half_full.jpeg'
 ---
 
 ![glass_half_full_image](/images/american_attitudes/glass_half_full.jpeg)

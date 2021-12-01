@@ -1,9 +1,9 @@
 ---
 title: 'American Attitudes Project'
-subtitle: 'This is a demo'
+subtitle: 'Is America’s Glass Half-Empty? Discovering drivers of America’s prospective thinking.'
 date: 2018-06-30 00:00:00
-description: Is America’s Glass Half-Empty? Discovering drivers of America’s prospective thinking.
-featured_image: '/images/american_attitudes/pew_research_center.png'
+description: Our team acquired survey data from the Pew Research Panel, and we explored the drivers of pessimism in American Prospective Attitudes. Understanding what most likely drives pessimistic or optimistic thinking about the future will help business leaders clarify strategies for moving forward and guide expectations of future success in the customers they serve, products offered, investments made, in Marketing and Sales, and throughout their business organization.
+featured_image: '/images/american_attitudes/glass_half_full.jpeg'
 ---
 
 ![](/images/american_attitudes/glass_half_full.jpeg)
@@ -54,24 +54,36 @@ You can throw in some horizontal rules too:
 
 Here's a really neat custom feature we added – galleries:
 
-<div class="responsive" data-columns="2">
-	<h2>Alexia Garces</h2>
-  	<a href="https://github.com/Alexia-Garces" target="_blank">
-		<img src="https://avatars.githubusercontent.com/u/85951697?v=4" style="width:250px;height:250px;">
-	</a>
-	<h2>Brooke Holyoak</h2>
+<table>
+<tr>
+	<td><center><h2>Alexia Garces</h2></center></td>
+	<td><center><h2>Brooke Garces</h2></center></td>
+</tr>
+<tr>
+	<td>
+	<a href="https://github.com/Alexia-Garces" target="_blank">
+			<img src="https://avatars.githubusercontent.com/u/85951697?v=4" style="width:250px;height:250px;">
+		</a>
+	</td>
+	<td>
 	<a href="https://github.com/Brooke-Holyoak" target="_blank">
 		<img src="https://avatars.githubusercontent.com/u/85950784?v=4" style="width:250px;height:250px;">
 	</a>
-	<h2>Jason Tellez</h2>
-	<a href="https://github.com/Jason-Tellez" target="_blank">
+	</td>
+</tr>
+<tr>
+<td><center><h2>Jason Tellez</h2></center></td>
+<td><center><h2>Malachi Hale</h2></center></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Jason-Tellez" target="_blank">
 		<img src="https://avatars.githubusercontent.com/u/85950634?v=4" style="width:250px;height:250px;">
-	</a>
-	<h2>Malachi Hale</h2>
-	<a href="https://github.com/malachi-hale" target="_blank">
+	</a></td>
+<td><a href="https://github.com/malachi-hale" target="_blank">
 		<img src="https://avatars.githubusercontent.com/u/85951217?v=4" style="width:250px;height:250px;">
-    </a>
-</div>
+    </a></td>
+</tr>
+</table>
 
 
 Inspired by the Galleries feature from WordPress, we've made it easy to create grid layouts for your images. Just use a bit of simple HTML in your post to create a masonry grid image layout:
@@ -108,26 +120,6 @@ Change the number inside the 'columns' setting to create different types of gall
 Here's another gallery with only one column, which creates a carousel slide-show instead.
 
 A nice little feature: the carousel only advances when it is in view, so your visitors won't scroll down to find it half way through your images.
-
-<div class="gallery" data-columns="1">
-	<div class="text">Caption Text</div>
-	<a href="https://github.com/Alexia-Garces" target="_blank">
-		<img src="https://avatars.githubusercontent.com/u/85951697?v=4"
-		 style="width:250px;height:250px;">
-	</a>
-	<div class="text">Caption Text</div>
-	<a href="https://github.com/Brooke-Holyoak" target="_blank">
-		<img src="https://avatars.githubusercontent.com/u/85950784?v=4" style="width:250px;height:250px;">
-	</a>
-	<div class="text">Caption Text</div>
-	<a href="https://github.com/Jason-Tellez" target="_blank">
-		<img src="https://avatars.githubusercontent.com/u/85950634?v=4" style="width:250px;height:250px;">
-	</a>
-	<div class="text">Malichi Hale</div>
-	<a href="https://github.com/malachi-hale" target="_blank">
-		<img src="https://avatars.githubusercontent.com/u/85951217?v=4" style="width:250px;height:250px;">
-    </a>
-</div>
 
 ### What about videos?
 

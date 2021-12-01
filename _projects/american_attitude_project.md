@@ -62,12 +62,12 @@ Here's a really neat custom feature we added – galleries:
 <tr>
 	<td>
 	<center><a href="https://github.com/Alexia-Garces" target="_blank">
-			<img src="https://avatars.githubusercontent.com/u/85951697?v=4" style="width:250px;height:250px;">
+			<img src="https://avatars.githubusercontent.com/u/85951697?v=4">
 		</a></center>
 	</td>
 	<td>
 	<center><a href="https://github.com/Brooke-Holyoak" target="_blank">
-		<img src="https://avatars.githubusercontent.com/u/85950784?v=4" style="width:250px;height:250px;">
+		<img src="https://avatars.githubusercontent.com/u/85950784?v=4">
 	</a></center>
 	</td>
 </tr>
@@ -78,12 +78,12 @@ Here's a really neat custom feature we added – galleries:
 <tr>
 	<td>
 	<center><a href="https://github.com/Jason-Tellez" target="_blank">
-		<img src="https://avatars.githubusercontent.com/u/85950634?v=4" style="width:250px;height:250px;">
+		<img src="https://avatars.githubusercontent.com/u/85950634?v=4">
 	</a></center>
 	</td>
 	<td>
 	<center><a href="https://github.com/malachi-hale" target="_blank">
-		<img src="https://avatars.githubusercontent.com/u/85951217?v=4" style="width:250px;height:250px;">
+		<img src="https://avatars.githubusercontent.com/u/85951217?v=4">
     </a></center>
 	</td>
 </tr>

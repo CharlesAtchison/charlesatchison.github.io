@@ -61,14 +61,14 @@ Here's a really neat custom feature we added – galleries:
 </tr>
 <tr>
 	<td>
-	<a href="https://github.com/Alexia-Garces" target="_blank">
+	<center><a href="https://github.com/Alexia-Garces" target="_blank">
 			<img src="https://avatars.githubusercontent.com/u/85951697?v=4" style="width:250px;height:250px;">
-		</a>
+		</a></center>
 	</td>
 	<td>
-	<a href="https://github.com/Brooke-Holyoak" target="_blank">
+	<center><a href="https://github.com/Brooke-Holyoak" target="_blank">
 		<img src="https://avatars.githubusercontent.com/u/85950784?v=4" style="width:250px;height:250px;">
-	</a>
+	</a></center>
 	</td>
 </tr>
 <tr>
@@ -76,12 +76,16 @@ Here's a really neat custom feature we added – galleries:
 <td><center><h2>Malachi Hale</h2></center></td>
 </tr>
 <tr>
-<td><a href="https://github.com/Jason-Tellez" target="_blank">
+	<td>
+	<center><a href="https://github.com/Jason-Tellez" target="_blank">
 		<img src="https://avatars.githubusercontent.com/u/85950634?v=4" style="width:250px;height:250px;">
-	</a></td>
-<td><a href="https://github.com/malachi-hale" target="_blank">
+	</a></center>
+	</td>
+	<td>
+	<center><a href="https://github.com/malachi-hale" target="_blank">
 		<img src="https://avatars.githubusercontent.com/u/85951217?v=4" style="width:250px;height:250px;">
-    </a></td>
+    </a></center>
+	</td>
 </tr>
 </table>
 

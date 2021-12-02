@@ -11,13 +11,10 @@ featured_image: /images/demo/about.jpg
 
 <section>
 
-<p>
-{% for image in images.about_icons %}
-
-    {{ site.baseurl }}{{ image }}"
-
+{% for image in site.images.about_icons %}
+    <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
 {% endfor %}
-</p>
+
 </section>
 
 ## Get Personal

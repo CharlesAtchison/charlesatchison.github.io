@@ -19,7 +19,7 @@ These are the wonderful people that were apart of this awesome project.
 <table>
 <tr>
 	<td><center><h2>Alexia Garces</h2></center></td>
-	<td><center><h2>Brooke Garces</h2></center></td>
+	<td><center><h2>Brooke Holyoak</h2></center></td>
 </tr>
 <tr>
 	<td>

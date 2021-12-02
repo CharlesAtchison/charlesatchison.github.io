@@ -1,4 +1,4 @@
-site: Personal Jekyll Theme
+site: Charles Atchison Website
 
 url: 
 baseurl: 
@@ -7,9 +7,6 @@ collections:
   pages:
     output: true
     permalink: /:name
-  posts:
-    output: true
-    permalink: /blog/:slug
   projects:
     output: true
     permalink: /project/:slug
@@ -26,12 +23,6 @@ defaults:
       type: "pages"
     values:
       layout: "page"
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
   -
     scope:
       path: ""
@@ -54,4 +45,5 @@ plugins:
 
 paginate: 6
 paginate_path: "/blog/page:num/"
+imagesurl: "/images/about_icons/"
   

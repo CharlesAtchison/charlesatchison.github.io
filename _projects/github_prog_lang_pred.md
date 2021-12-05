@@ -1,16 +1,17 @@
 ---
 title: 'Github Programming Language Prediction'
-subtitle: 'Can we predict a repo's programming language, based on the text in a README file?'
+subtitle: "Can we predict a repo's programming language, based on the text in a README file?"
 date: 2021-11-04 00:00:00
 description: This project scraped README markdown files from Github repos and we used natural language processing to filter and create datasets for each programming language. Using these datasets from over 30,000 README's we were able to predict what programming language was used based on the composition of the README text.
 github_link: 'https://github.com/Codeup-NLP-Project/NLP-Project'
-featured_image: '/images/github_prog_lang_pred/nlp_feature.png'
+featured_image: '/images/github_prog_lang_pred/nlp_feature.jpg'
 thumbnail_image: '/images/github_prog_lang_pred/nlp.png'
 ---
 
+
 ![natural_lang_proc_image](/images/github_prog_lang_pred/nlp.png)
 
-### Date: November 14, 2021
+### Date: November 4, 2021
 
 # My Teammates
 
@@ -24,17 +25,16 @@ These are the wonderful people that were apart of this awesome project.
 <tr>
 	<td>
 	<center><a href="https://github.com/Marley-C-Robinson-99" target="_blank">
-			<img src="https://avatars.githubusercontent.com/u/75507922?v=4">
+			<img src="https://avatars.githubusercontent.com/u/75507922?v=4" width="400px" height="400px">
 		</a></center>
 	</td>
 	<td>
 	<center><a href="https://github.com/johnathon-smith" target="_blank">
-		<img src="https://avatars.githubusercontent.com/u/85951765?v=4">
+		<img src="https://avatars.githubusercontent.com/u/85951765?v=4" width="400px" height="400px">
 	</a></center>
 	</td>
 </tr>
 </table>
-
 
 <a name ='toc'></a>
 # Table of Contents 
@@ -47,385 +47,243 @@ These are the wonderful people that were apart of this awesome project.
     1. [Goals](#goals)
     2. [Findings](#findings)
 3. [Acquire Data](#acquire)
-    1. [Working with American Trends Panel Data](#working_with_data)
-    2. [Data Dictonary](#data_dict) 
-    3. [Acquire Takeaways](#acquire_takeaways)
+    1. [Data Dictonary](#data_dict)
+    2. [Acquire Takeaways](#acquire_takeaways)
 4. [Prepare Data](#prep_data)
     1. [Distributions](#distributions)
     2. [Prepare Takeaways](#prepare_takeaways)
 5. [Data Exploration](#explore)
-    1. [Correlations](#correlations)
-    2. [Pairplot](#pairplot)
-    3. [Hypothesis & Testing](#hypotheses)
-    4. [Explore Takeaways](#explore_takeaways)
+    1. [Explore Takeaways](#explore_takeaways)
+    2. [Hypothesis](#hypothesis)
 6. [Modeling & Evaluation](#modeling)
-    1. [Baseline](#baseline)
-    2. [Decision Tree](#decision_tree)
-    3. [Random Forest](#random_forest)
-    4. [K Nearest Neighbors](#knn)
-    5. [Other Models](#other_models)
-    6. [Feature Importance](#feature_importance)
-    7. [Modeling with just the top features](#top)
-    9. [Model Comparison](#model_comparison)
-    10. [Out of Sample Testing](#out_of_sample)
-    11. [Modeling the Gender Subsets](#modeling_gender)
-    12. [Modeling the Political Party Subsets](#modeling_politics)
-    13. [Modeling the Income Level Subsets](#modeling_income_level)
-    14. [Modeling the Education Level Subsets](#modeling_education_level)
-    15. [Modeling Takeaways](#modeling_takeaways)
-7. [Project Delivery](#delivery)
-    1. [Conclusion & Next Steps](#conclusion_and_next_steps)
-    2. [Project Replication](#replicate)
-    3. [Data Use Agreements](#data_use)
+    1. [Modeling Takeaways](#model_takeaways)
+6. [Project Delivery](#delivery)
+    1. [Conclusions & Next Steps](#conclusions_next_steps)
+    2. [Project Replication](#replication)
 
 <hr style="border-top: 10px groove tan; margin-top: 5px; margin-bottom: 5px">
 
 <a name='project_planning'></a>
-# Project Planning
+## Project Planning
 ✓ 🟢 **Plan** ➜ ☐ _Acquire_ ➜ ☐ _Prepare_ ➜ ☐ _Explore_ ➜ ☐ _Model_ ➜ ☐ _Deliver_
 
 <a name='project_objectives'></a>
-## Project Objectives 
-> - Utilize American Trends Panel Datasets (downloadable <a href="https://www.kaggle.com/shankanater/american-trends-panel-pewresearch/download">here</a>), with statistical modeling techniques to assess and attempt to predict sentiment toward particular topics.
-> - This will culminate into a well-built well-documented jupyter notebook that contains our process and derivation of these predictions.
-> - Modules will be created that abstract minutiae aspects of the data pipeline process.
+### Project Objectives 
+> - For this project our team is to build a model that can predict what programming language a repository will be, given the text of a README file.
+> - In addition to this, we are to build a well-documented jupyter notebook that contains the analysis of this prediction.
+> - Any abstracted modules that are created to make the presentation more clean, during the acquistion and preparation of data.
+> - Finally, we are to build a few Google slides to present toward a general audience that summarizes the findings within the project, with many visualizations.
 
 <a name='business_goals'></a>
-## Business Goals 
-> - Utilize tabulated statistical data aquired from Pew Research American Trends Surveys.
-> - Prepare, explore and formulate hypthoesis about the data.
-> - Build models that can predict future American sentiment toward certain topics, and utilize hyperparameter optimization and feature engineering to improve validation model performance prior to evaluating on test data.
-> - Document all these steps throughly.
+### Business Goals 
+> - Build a script that will find, then scrape the README files from Github.
+> - Prepare, explore and clean the data so that it can be input into modeling.
+> - Utilizie Term Frequence (TF) Inverse Document Frequency (IDF) and a combination of the two features to assist with the modeling.
+> - Document all these steps thoroughly.
 
 <a name='audience'></a>
-## Audience 
+### Audience 
 > - General population and individuals without specific knowledge or understanding of the topic or subject.
 
 <a name='deliverables'></a>
-## Deliverables
+### Deliverables
 > - A clearly named final notebook. This notebook will contain more detailed processes other than noted within the README and have abstracted scripts to assist on readability.
 > - A README that explains what the project is, how to reproduce the project, and notes about the project.
-> - A Python module and associated modules that automate the data acquisition and preparation process. 
+> - A Python module or modules that automate the data acquisition and preparation process. These modules should be imported and used in your final notebook.
 
 <div style="text-align: right"><a href='#toc'>Table of Contents</a></div>
 <hr style="border-top: 10px groove tan; margin-top: 1px; margin-bottom: 1px">
 
 <a name='exe_sum'></a>
-# Executive Summary
-> - Our team acquired Pew Research Panel survey data and utilized this data to explore the drivers of pessimism in American Prospective Attitudes.
-> - Being able to understand what most likely drives pessimistic or optimistic thinking about the future will help business leaders clarify strategies for moving foward.
-> - This project will also help guide expectations of future sucess in the customers these business leaders serve, in addition to the products offered, investment, marketing and sales, and other aspects throughout their organization. 
+## Executive Summary
+> - 30,000 repository README files were scraped from Github.
+> - Javascript files were analyzed and compared against all other README files.
+> - Our model performed well, identifying Javascript repositories with an accuracy of over 94.8%.
 
 <a name='goals'></a>
-## Goals
-> - Build a model that can predict future American sentiment toward certain topics, utilizing split survey data as the training dataset.
+### Goals
+> - Build a model that can predict what programming language a repository will be, given the text of a README file.
 
 <a name='findings'></a>
-## Findings
-> - Standard demographic features like age, sex, and income are not drivers of overall pessimism. However, features like what will happen to the average family's standard of living, cost of healthcare, and the future of the public education system are highly correlated to overall pessimism.
+### Findings
+> - The average message length of Javascript readme files is significantly different than the average message length of all other readme files.
+> - The average compound sentiment analysis score for Javascript readme files is significantly different than the average compound sentiment analysis score for all other readme files.
+> - The average avg_word_len for Javascript readme files is significantly different than the average avg_word_len of all other readme files.
+> - The average word_count for Javascript readme files is significantly different than the average word_count of all other readme files.
+> - The best preforming model, a Multinomial Naive Bayes classifier, achieved an out-of-sample test accuracy of 94.8%
 
 <div style="text-align: right"><a href='#toc'>Table of Contents</a></div>
 <hr style="border-top: 10px groove tan; margin-top: 1px; margin-bottom: 1px">
 
 <a name='acquire'></a>
-# Acquire Data
+## Acquire Data
 ✓ _Plan_ ➜ 🟢 **Acquire** ➜ ☐ _Prepare_ ➜ ☐ _Explore_ ➜ ☐ _Model_ ➜ ☐ _Deliver_
+> - Our first issue was locating a sufficient number of README destinations to actually parse. The solution we devised was to look at a person's followers on Github, then add those followers to a list.
+We would also parse up to the first 30 repository destinations from that user. Then we would iterate to the next follower and continue until we had around 30,000 repository destinations.
+> - Once we had our destinations, we scraped the README text and all the programming languages and their associated percentages.
+> - To determine the primary programming language of any repository, we first read in the percentages of the programming languages used in it and set a percentage threshold. So, if a programming language was at or above that threshold, it was considered the primary programming language of the repository.
 
-> - The data is acquired from Pew Research Panel survey data that asks various demographic questions in conjunction with the survey questions themselves.
-> - The questions all ask for categorical responses from the individuals and the questions pertain to various topics of American life, such as politics and economics.
-
-<a name="working_with_data"></a>
-## Working with American Trends Panel Data 
-
-### Demographic Profile Variables
-> - Each ATP dataset comes with a number of variables prefixed by “F_” (for “frame”) that contain demographic profile data. These variables are not measured every wave; instead, they are sourced from panel profile surveys conducted on a less frequent basis. Some profile variables are also occasionally asked on panel waves and are accordingly updated for each panelist. Profile information is based on panelists’ most recent response to the profile questions. Some variables are coarsened to help protect the confidentiality of our panelists. Interviewer instructions in `[ ]` and voluntary responses in `( )` are included if the source of a profile variable was ever presented in phone (CATI) mode. See Appendix I for the profile variable codebook.
-
-###  Unique Identifier
-> - The variable `QKEY` is a unique identifier assigned to each respondent. `QKEY` can be used to link multiple panel waves together. Note that except in a few instances, `WEIGHT_W41` are only provided for single waves. Use caution when analyzing data from multiple waves without weights that are designed for use with multiple waves.
-
-### Data Variable Types
- > - American Trends Panel datasets contain single-punch or multi-punch variables. For questions in a 'Check all that apply' format, each option has its own variable indicating whether a respondent selected the item or not. For some datasets there is an additional variable indicating whether a respondent did not select any of the options. Open-end string variables are not included in ATP datasets. Coded responses to open-end questions are included when available.
-
-### Dataset Format
-> - The dataset is formatted as a .sav file and can be read with the SPSS software program. The dataset can also be read with the R programming language, using the `foreign` package. R is a free, open-source program for statistical analysis that can be downloaded <a href="https://cran.r-project.org/" target="_blank">here</a>. It can also be used to export data in .csv format for use with other software programs.
-
-> - **NOTE**: Using other tools to directly convert the .sav file to another format such as .csv may ERASE value
-labels. For this reason, it is highly recommended that you use either SPSS or R to read the file directly.
 
 <a name='data_dict'></a>
-## DataFrame Dictionary
+### DataFrame Dictionary
 
-> - Data Dictionary can be viewed <a href="data_dictionary.md">here</a>
+| Feature           | Datatype                         | Definition                                                 |
+|:------------------|:---------------------------------|:-----------------------------------------------------------|
+| prog_lang         | 5728 non-null: object           | The predominant programming language used in the repository|
+| original          | 5728 non-null: object           | Original readme content of the scraped repository          |
+| cleaned           | 5728 non-null: object           | The cleaned version of the readme                          |
+| label             | 5728 non-null: object           | The programming language label; the target variable
+| stemmed           | 5728 non-null: object           | The cleaned, stemmed version of the readme                 |
+| lemmatized        | 5728 non-null: object           | The cleaned, lemmatized version of the readme              |
 
 <a name='acquire_takeaways'></a>
-## Takeaways from Acquire:
-> - We acquired a DataFrame from a Pew Research Panel survey which contained 2524 observations and 124 columns.
-> - Each row represents an individual American adult and his or her responses to the survey questions.
-> - Of our 124 columns, 2 are continuous and numeric: `qkey` and `weight`. The remaining 122 columns are categorical features.
-	- The `weight` column indicates the corresponding survey weight of each respondent in the sample. The survey weight indicates how representative an observation is of the total population.
-> - The survey results provide us with information regarding each respondents' views about the future of the United States. In addition,the acquired data contains demographic data for each respondent, including gender, race, income level, and political affiliation.
-
+### Takeaways from Acquire:
+> - Target Variable: label
+> - This dataframe currently has 5,728 rows and 6 columns.
+> - There are 0 missing values.
+> - All columns are string object types.
 
 <div style="text-align: right"><a href='#toc'>Table of Contents</a></div>
 <hr style="border-top: 10px groove tan; margin-top: 1px; margin-bottom: 1px">
 
-
 <a name='prep_data'></a>
-# Prepare Data
+## Prepare Data
 ✓ _Plan_ ➜ ✓ _Acquire_ ➜ 🟢 **Prepare** ➜ ☐ _Explore_ ➜ ☐ _Model_ ➜ ☐ _Deliver_
 
-> - We will import our `prepare.py` file, which performs a series of steps to clean and prepare our data: 
-
-> - **First**, we convert the categorical features in the DataFrame to objects.     
-
-> - **Second**, because our target variable will be the respondents' prospective thinking, we drop rows for which the respondent refused to answer the question about prospective thinking in the column `OPTIMISMT_W41`.  
-
-> - **Third**, we rename the columns as indiciated by our data dictionary above.     
-
-> - **Fourth**, from the column `OPTIMIST_W41`, we create new columns `is_pes`, `pes_val`, `is_very_pes`, and `is_very_opt`.  
-    - The column `is_pes` introduces a Boolean value where 1 indicates a pessimistic outlook and is 0 indicates an optimistic outlook. 
-    - The column `pes_val` ranks a respondent's pessisism, with 0 being the least pessismistic and 3 being the most pessimistic. 
-    - The column `is_very_pes` introduces a Boolean value where 1 indicates a very pessimistic outlook and 0 indicates a somewhat pessimistic, somewhat optimistic, or very optimistic outlook. 
-    - The column `is_very_opt` introduces a Boolean value where 1 indicates a very optimistic outlook and 0 indicates a somewhat optimistic, somewhat pessimistic, or very pessimistic outlook. 
-
-> - **Fifth**, we create a `replace_key` which transforms every response in the categorical columns to a corresponding numeric value. We also introduce a `revert_key` which reverts the numeric values back to the original string responses.   
-
-> - **Finally**, we convert the column indicating the unique identity of each respondent `QKEY` to an integer. 
-
-
-> - Additionally, we split the data into `train`, `validate`, and `test` datasets, stratifying on the target feature `is_pes`.
-
+> - Converted all characters to lowercase, 
+> - Normalized unicode characters, 
+> - Encoded into ascii byte strings and ignored unknown characters,
+> - Decoded into usable UTF-8 strings,
+> - Removed anything that was not either a letter, number, or whitespace,
+> - tokenized the data.
+> - To make our model more accurate, we decided to filter out words that that didn't seem to be important for identification purposes. To do this, we found the counts of each word used in the repositories for a particular programming language. Then, we removed any words that had a Z-score of .5 or below. This removed any junk words that may have been present and placed greater emphasis on the words that were most prevalent.
+> - We performed this process twice. Once for the designated programming language, and then again for all of the repositories that were NOT that language.
+> - Then we created both stemmed and lemmatized versions of the cleaned data.
+> - Finally, we split the data into train and test sets.
 
 <a name='prepare_takeaways'></a>
-## Prepare Takeaways
-> - Utilizing the functions in our `prepare.py` we implemented a series of functions to clean our data.
+### Prepare Takeaways
 
-
-> - We eliminated nine respondents from our dataset because these respondents refused to answer the question `OPTIMIST_W41` about prospective thinking of the US' future. 
-
-
-> - Our newly created target feature `is_pes` maps the responses to question `OPTIMIST_W41` "Somewhat pessimistic" and "Very pessimistic" as the single Boolean value 1 and the responses "Somewhat optimistic" and "Very optimistic" to the single Boolean value 0. 
-
-
-> - Stratifying on `is_pes`, we split our data into `train`, `validate`, and `test`, datasets of lengths 1408, 604, and 503, respectively. 
+> - The data was cleaned and is ready for exploration on the train data set.
+                     
 <div style="text-align: right"><a href='#toc'>Table of Contents</a></div>
 <hr style="border-top: 10px groove tan; margin-top: 1px; margin-bottom: 1px">
 
 
 <a name='explore'></a>
-# Explore Data
+## Explore Data
 ✓ _Plan_ ➜ ✓ _Acquire_ ➜ ✓ _Prepare_ ➜ 🟢 **Explore** ➜ ☐ _Model_ ➜ ☐ _Deliver_
 
-> - We dropped columns that were too closely related to the derivative of our target column (`is_pes`):
-> - Those columns ended up being `avg_family`, `attitude`, `pes_val`, `is_very_pes` and `is_very_opt`.
-> - We also dropped `qkey` since it is only an id value and will not provide any information since each is a unique value.
-> - We split our train, validate, and test columns to feature dataframes and target series.
+> - Utilizing a class, we explored the data and tested several hypotheses.
+> - We compared word, bigram, and trigram counts and created visualizations for each.
+> - We created visualizations for the distributions of the compound sentiment analysis score.
+> - We created word clouds for quick visualization of the most common words.
 
-## Statistical Test Results
+### Horizontal Barplots
 
-| column_name |    chi2 |       p_val |   deg_free | expected_freq                 |
-|:----------------|--------:|------------:|-----------:|:------------------------------|
-| `happen_general`  | 309.847 | 5.21955e-68 |          2 | [[ 65.23082386  51.76917614]  |
-|                 |         |             |            |  [299.39275568 237.60724432]  |
-|                 |         |             |            |  [420.37642045 333.62357955]] |
-| `happen_pub_ed`   | 236.57  | 4.26122e-52 |          2 | [[ 75.26633523  59.73366477]  |
-|                 |         |             |            |  [411.45596591 326.54403409]  |
-|                 |         |             |            |  [298.27769886 236.72230114]] |
-| `happen_child_f2` | 180.023 | 8.72154e-39 |          3 | [[152.76278409 121.23721591]  |
-|                 |         |             |            |  [210.18821023 166.81178977]  |
-|                 |         |             |            |  [ 34.56676136  27.43323864]  |
-|                 |         |             |            |  [387.48224432 307.51775568]] |
-| `happen_race`     | 157.809 | 5.39807e-35 |          2 | [[317.79119318 252.20880682]  |
-|                 |         |             |            |  [398.07528409 315.92471591]  |
-|                 |         |             |            |  [ 69.13352273  54.86647727]] |
-| `happen_health`   | 145.05  | 3.18329e-32 |          2 | [[447.6953125  355.3046875 ]  |
-|                 |         |             |            |  [265.94105114 211.05894886]  |
-|                 |         |             |            |  [ 71.36363636  56.63636364]] |
+|<center>Javascript</center>|<center>Non-Javascript</center>|
+|:-:|:-:|
+|![Javascript_Horizontal_Plot](/images/github_prog_lang_pred/javascript_word_freq_hplot.png)|![Not_Javascript_Horizontal_Plot](/images/github_prog_lang_pred/not_javascript_word_freq_hplot.png)|
 
-## Univariate Distributions
+### Stacked Horizontal Barplots
 
-![univariate_exploration_plots](images/univariate_exploration.jpeg)
+|<center>Javascript</center>|<center>Non-Javascript</center>|
+|:-:|:-:|
+|![Javascript_Stacked_Horizontal_Plot](/images/github_prog_lang_pred/javascript_stacked_bplot.png)|![Not_Javascript_Stacked_Horizontal_Plot](/images/github_prog_lang_pred/not_javascript_stacked_bplot.png)|
 
-### Males vs Females Pessimisim
+### Bigram Plots
 
-![Male_vs_female_pessimisim_plot](/images/american_attitudes/fem_male_pessimism_percentage.jpeg)
+|<center>Javascript</center>|<center>Non-Javascript</center>|
+|:-:|:-:|
+|![Javascript_Bigrams_Plot](/images/github_prog_lang_pred/javascript_2_gram.png)|![Not_Javascript_Bigrams_Plot](/images/github_prog_lang_pred/not_javascript_2_gram.png)|
 
-### Family Income Pessimisim
+### Trigram Plots
 
-![family_income_pessimism_plot](/images/american_attitudes/percent_is_pes_by_family_income.jpeg)
+|<center>Javascript</center>|<center>Non-Javascript</center>|
+|:-:|:-:|
+|![Javascript_Trigrams_Plot](/images/github_prog_lang_pred/javascript_3_gram.png)|![Not_Javascript_Trigrams_Plot](/images/github_prog_lang_pred/not_javascript_3_gram.png)|
 
-### Educational Attainment Pessimisim
+### Wordcloud Plots
 
-![educational_attainment_pessimisim_plot](/images/american_attitudes/percent_is_pes_by_highest_education_six_categories.jpeg)
-
-
-<a name='hypotheses'></a>
-## Hypotheses & Testing
-
-### Hypothesis 1
-> - H<sub>0</sub>: Is sex independent of a pessimsitic future outlook?
-> - H<sub>a</sub>: Sex is dependent on pessimist future outlook.
-> - &#x0251;: 0.05
-
-#### Hypothesis 1 Takeaways 
-> - The number of females and males who are overall pessimistic are about the same.
-> - The p-value is above 0.05, so we accept the null hypothesis.
-
-### Hypothesis 2
-> - H<sub>0</sub>: Is income independent of a pessimistic future outlook?
-> - H<sub>a</sub>: Income is dependent on pessimistic future outlook.
-> - &#x0251; = 0.05
-
-#### Hypothesis 2 Takeaways 
-> - While it appears that people who are middle income earners are more pessimistic, there is no significance for overall income related to overall pessimism.
-> - The p-value is above 0.5, so we accept the null hypothesis.
+|<center>Javascript</center>|<center>Non-Javascript</center>|
+|:-:|:-:|
+|![Javascript_Wordcloud_Plot](/images/github_prog_lang_pred/javascript_wordcloud.png)|![Not_Javascript_Wordcloud_Plot](/images/github_prog_lang_pred/not_javascript_wordcloud.png)|
 
 <a name='explore_takeaways'></a>
-## Explore Takeaways
+### Explore Takeaways
 
-> - There a small differences in future outlook when considering sex, income and education.
-> - While the small differences exist, they do not appear to be significant.
-> - Through chi-squared testing, we verify that there is not a significant relationship between theses features and our target.
-> - Even though they are not necessarily drivers of overall future outlook, the findings are still helpful in isolation.
-
+> - The top 5 most common words in Javascript readme files occur in Javascript files much more frequently than all other readme files.
+> - Javascript sentiment analysis compound scores tend to be more positive than all Non-Javascript, while all Non-Javascript tend to be more neutral than Javascript.
 
 <div style="text-align: right"><a href='#toc'>Table of Contents</a></div>
 <hr style="border-top: 10px groove tan; margin-top: 1px; margin-bottom: 1px">
 
+<a name='hypothesis'></a>
+### Hypothesis Testing
+
+#### Hypothesis 1
+> - H<sub>0</sub>: The average message length of Javascript readme files == The average message length of all other readme files.
+> - H<sub>a</sub>: The average message length of Javascript readme files != The average message length of all other readme files.
+> - alpha: 0.05
+> - Since the p-value is less than 0.05, we reject the null hypothesis. The average message length of Javascript readme files is significantly different than the average message length of all other readme files.
+
+#### Hypothesis 2
+> - H<sub>0</sub>: The average compound sentiment analysis of Javascript readme files == The average compound sentiment analysis of all other readme files.
+> - H<sub>a</sub>: The average compound sentiment analysis of Javascript readme files != The average compound sentiment analysis of all other readme files.
+> - alpha = 0.05
+> - Since the p-value is less than alpha, we reject the null hypothesis. The average compound sentiment analysis score for Javascript readme files is significantly different than the average compound sentiment analysis score for all other readme files.
+
+#### Hypothesis 3
+> - H<sub>0</sub>: The average avg_word_len of Javascript readme files == The average avg_word_len of all other readme files.
+> - H<sub>a</sub>: The average avg_word_len of Javascript readme files != The average avg_word_len of all other readme files.
+> - alpha = 0.05
+> - Since the p-value is less than 0.05, we reject the null hypothesis. The average avg_word_len for Javascript readme files is significantly different than the average avg_word_len of all other readme files.
+
+#### Hypothesis 4
+> - H<sub>0</sub>: The average word_count of Javascript readme files == The average word_count of all other readme files.
+> - H<sub>a</sub>: The average word_count of Javascript readme files != The average word_count of all other readme files.
+> - alpha = 0.05
+> - Since the p-value is less than 0.05, we reject the null hypothesis. The average word_count for Javascript readme files is significantly different than the average word_count of all other readme files.
 
 <a name='modeling'></a>
-# Modeling & Evaluation
+## Modeling & Evaluation
 ✓ _Plan_ ➜ ✓ _Acquire_ ➜ ✓ _Prepare_ ➜ ✓ _Explore_ ➜ 🟢 **Model** ➜ ☐ _Deliver_
 
-> - We first have to choose a baseline to compare our models against.
-> - The main models we will be using are Decision Tree, Random Forest, and K-Nearest Neighbor.
-> - We will use different variations of our models until we determine one model to have outperformed our baseline and to have avoided overfitting or underfitting on the training data.
-> - We will also be testing feature importance to see what drives an individual's overall attitude.
-> - Once we choose our best model, we will run this model on our Out-of-sample dataset.
+> - Created a class to vectorize and create, fit, and evaluate models on in and out-of-sample datasets.
+> - Utilized a class method using cross-validate to fit and evaluate models on a specified number of K-Folded splits, garnering an average validate accuracy score for each classifier type.
+> - Chose the best model from cross-validation and evaluated the accuracy on out-of-sample test data.
 
-<a name='baseline'></a>
-## Baseline
-> - With a non-pessimistic attitude as our baseline, we calculated our accuracy by asuming that every respondent was non-pressimistic. This method gave us an accuracy of 55.75%. 
+#### K-Fold and Cross-validation References:
+> - For more information on the workings of cross-validation, visit https://scikit-learn.org/stable/modules/cross_validation.html
+> - For information on how cross-validation works in conjunction with K-Folding visit https://scikit-learn.org/stable/modules/cross_validation.html#k-fold
 
-<a name='decision_tree'></a>
-## Decision Tree
-> - Utilizing the `decision_tree_models` function from our `model.py` file, we created a series of Decision Tree models with varying depths. Using our `test_a_model` function from the `model.py`, we calculated the accuracies of these models on the `train` and `validate` datasets for each of these models. 
+<a name='model_takeaways'></a>
+### Modeling Takeaways
 
-<a name='random_forest'></a>
-## Random Forest 
-> - Utilizing the `random_forest_models` function from our `model.py` file, we created a series of Random Forest models with varying depths and min samples leaf. Using our `test_a_model` function from the `model.py`, we calculated the accuracies of these models on the `train` and `validate` datasets for each of these models. 
+> - Baseline score of 84.0% based on most common label
+> - Got best performance from classifiers with K-Folds set to 10.
+> - The best performing classifier types were Multinomial Naive Bayes classifiers with alpha = 0.5, averaging 94.13% across all cross-validate splits.
+> - Best single model accuracy score on a cross-validation test (validate) subset from was 95.42%
+> - Using that model, achieved an out-of-sample test accuracy score of 94.8%.
 
-
-<a name='knn'></a>
-## K Nearest Neighbors
-> - Utilizing the `random_forest_models` function from our `model.py` file, we created a series of K Nearest Neighbors models with varying numbers of neighbors. Using our `test_a_model` function from the `model.py`, we calculated the accuracies of these models on the `train` and `validate` datasets for each of these models. 
-
-<a name='other_models'></a>
-## Other Models
-> - We used the models Linear SVC, Logistic Regression, and Naive Bayes to classifiy pessismistic respondents. We then used the `test_a_model` function to evaluate the accuracy of these models on the `train` and `validate` datasets. 
-
-<a name='feature_importance'></a>
-## Feature Importance
-> - Of the models mentioned above, our best performing model was the Random Forest Classifier with depth 8, min samples leaf 3. We utilized this model to perform feature importance on the features in our dataset. We found that public education and U.S. economics are major drivers of pessimism. 
-
-![feature_importance_plot](/images/american_attitudes/feature_importance.jpeg)
-
-<a name='top'></a>
-## Modeling with just the top features
-> - Feature importances gave us a ranked order of the features by importance in predicting pessimism. Using these ordered features, we ran a series of Random Forest Classifier models using just the top thirty most important features and just the forty most important features, using varying parameters. None of these models, however, outperformed the the Random Forest Classifier with depth 8, min samples leaf 3 using all features. 
-
-<a name='model_comparison'></a>
-## Model Comparison
-> - Our best performing model was the Random Forest Classifier which included all features and had min samples leaf 3 and a depth of 8. This model had an accuracy of 80.46% on the validate dataset.
-
-![model_comparison](/images/american_attitudes/model_comparison.jpeg)
-
-<a name='modeling_gender'></a>
-## Modeling the Gender Subset
-> - We ran Random Forest Classification models on the subsets of female and male respondents. 
-
-| Most Important Issues For Women | Most Important Issues for Men |
-|---------------------------------|-------------------------------|
-| ![females](/images/american_attitudes/females.jpeg) | ![males](/images/american_attitudes/males.jpeg)   |
-
-<a name='modeling_politics'></a>
-## Modeling the Political Party Subsets
-> - We ran Random Forest Classification models on the subsets of Republican and Democrat respondents. 
-
-| Most Important Issues For Republicans   | Most Important Issues for Democrats |
-|-----------------------------------------|-------------------------------------|
-| ![Republicans](/images/american_attitudes/republicans.jpeg) | ![Democrats](/images/american_attitudes/democrats.jpeg) |
-
-<a name='modeling_income_level'></a>
-## Modeling the Income Level Subsets 
-> - We ran Random Forest Classification models on on the subsets for income groups less than \$30,000, between \$30,000 and \$75,000, and more than \$75,000.
-
-| Most Important Issues For Lower Income Level | Most Important Issues for Middle Income Level | Most Important Issues for Upper Income Level |
-|----------------------------------------------|-----------------------------------------------|----------------------------------------------|
-| ![lower](/images/american_attitudes/lower_income_group.jpeg)     | ![middle](/images/american_attitudes/middle_income_group.jpeg)    | ![higher](/images/american_attitudes/upper_income_group.jpeg)    |
-
-<a name='modeling_education_level'></a>
-## Modeling the Education Level Subsets
-> - We ran Random Forest Classification models on the subsets for the respondents' highest education level, grouped by: high school or less, some college, or college graduate and above. 
-
-| Most Important Issues For Highest Education High School or Less | Most Important Issues For Highest Education Some College | Most Important Issues For Highest Education College Degree |
-|-----------------------------------------------------------------|----------------------------------------------------------|------------------------------------------------------------|
-| ![high_school](/images/american_attitudes/education_high_school_or_less.jpeg)       | ![middle](/images/american_attitudes/middle_income_group.jpeg)               | ![higher](/images/american_attitudes/education_college_graduate.jpeg)          |
-
-<a name='out_of_sample'></a>
-## Out of Sample
-> - We ran our best performing model, selected above on the out-of-sample test dataset. We achieved a 76.54% accuracy. 
-
-<a name='modeling_takeaways'></a>
-
-## Modeling Takeaways
-
-> - Big drivers of pessimism are public education and economics
-> - Some other main drivers are job benefits and job security, race relations, standards of living, healthcare, and the country's world status are also very important to adults
-> - We chose the most common result of the target column as our baseline with an accuracy of 55.75%.
-> - We ran over 200 variations of Decision Tree, Random Forest, K-Nearest Neighbor, and other models
-> - Overall, the model with the best performances was the Random Forest with 
->    - `max_depth` = 8
->    - `min_samples_leaf` = 3
-> - Accuracy:
->    - `train` (In-sample) = 92.05%
->    - `validate` (Out-of-sample) = 80.46%
->    - `test` (Out-of-sample) = 76.54%
-  
 <div style="text-align: right"><a href='#toc'>Table of Contents</a></div>
 <hr style="border-top: 10px groove tan; margin-top: 1px; margin-bottom: 1px">
 
 <a name='delivery'></a>
-# Project Delivery
+## Project Delivery
 ✓ _Plan_ ➜ ✓ _Acquire_ ➜ ✓ _Prepare_ ➜ ✓ _Explore_ ➜ ✓ _Model_ ➜ 🟢 **Deliver**
 
-> - Currently we are achieving an Out-of-sample accuracy of ~76% on our `test` data and we believe with further feature engineering and hyper-parameter optimization we could achieve a higher accuracy. 
-
-<a name='conclusion_and_next_steps'></a>
-
-## Conclusion and Next Steps
-> - While it appeared that there may have been a significant difference between the genders and their pessimisim, it was not result in this instance. 
-> - Additionally, our other potential observation, that there would be a significant difference in the pessimisim reletive to income, it was again not the result in this instance.
-> - The next step is to continue finalizing the work and ensuring our work is throughly documented.
-> - With more time we will continue examining multiple different feature combinations and test for significance from these observations.
+<a name='conclusions_next_steps'></a>
+### Conclusion and Next Steps
+> - Javascript repository `README` files have consistent, identifying characteristics such as average word length, message length, and word count.
+> - With more time, we would like to build a multi-class classification model and do more feature engineering.
 
 <a name='replication'></a>
-## Project Replication
-> - Statistical data can be downloaded from <a href="https://www.kaggle.com/shankanater/american-trends-panel-pewresearch/download">here</a>.
-> - You can read the SPSS Statistic data file with `pandas.read_spss("ATP W41.sav")`
+### Project Replication
+> - Download the `acquire.py`, `prepare.py`, `explore.py`, and `model.py` modules to your working directory.
+> - Download the all files from dataset which can be found at <a href='https://www.kaggle.com/shankanater/data-to-recreate-nlp-project/download'>here</a>
+> - Run the `final_report.ipynb` Juypter Notebook.
 
-<a name='data_use'></a>
-## Data Use Agreements
-> - The source of the data with express reference to the center in accordance with the following citation: “Pew Research Center’s American Trends Panel”
-> - Any hypothesis, insight and or result within this project in no way implies or suggests as attributing a particular policy or lobbying objective or opinion to the Center, and
-> - “The opinions expressed herein, including any implications for policy, are those of the author and not of Pew Research Center.”
-> - Information on The American Trends Panel (ATP) can be found at <a href="https://www.pewresearch.org/our-methods/u-s-surveys/the-american-trends-panel/" target="_blank">The American Trends Panel</a>
-> - More information on these user agreements can be found at <a href="https://www.pewresearch.org/about/terms-and-conditions/" target="_blank">Pew Research</a>.
 
 <div style="text-align: right"><a href='#toc'>Table of Contents</a></div>
 <hr style="border-top: 10px groove tan; margin-top: 1px; margin-bottom: 1px">
-
----
-**Citation**
-
-> - <a href="https://www.pewresearch.org/social-trends/dataset/american-trends-panel-wave-41/">"American Trends Panel Wave 41.”</a> Pew Research Center, Washington, D.C. (December 27, 2018).

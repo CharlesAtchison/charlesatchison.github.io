@@ -260,7 +260,7 @@ labels. For this reason, it is highly recommended that you use either SPSS or R 
 
 ## Univariate Distributions
 
-![univariate_exploration_plots](images/univariate_exploration.jpeg)
+![univariate_exploration_plots](/images/american_attitudes/univariate_exploration.jpeg)
 
 ### Males vs Females Pessimisim
 

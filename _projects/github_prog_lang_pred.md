@@ -1,7 +1,7 @@
 ---
 title: 'Github Programming Language Prediction'
 subtitle: 'Can we predict a repo's programming language, based on the text in a README file?'
-date: 2021-11-4 00:00:00
+date: 2021-11-04 00:00:00
 description: This project scraped README markdown files from Github repos and we used natural language processing to filter and create datasets for each programming language. Using these datasets from over 30,000 README's we were able to predict what programming language was used based on the composition of the README text.
 github_link: 'https://github.com/Codeup-NLP-Project/NLP-Project'
 featured_image: '/images/github_prog_lang_pred/nlp_feature.png'

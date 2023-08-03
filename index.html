@@ -16,7 +16,26 @@ featured_image: /images/demo/home.jpg
 		<h1>Hello there!</h1>
 		<p>Check out some of what I've been working on down below!</p>
 
-		{% include socials.html %} <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+		{% include socials.html %}
+		<script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+		
+		<script>
+		(function (w, d, s, o, f, js, fjs) {
+			w["botsonic_widget"] = o;
+			w[o] = w[o] || function () {
+				(w[o].q = w[o].q || []).push(arguments);
+			};
+			(js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);
+			js.id = o;
+			js.src = f;
+			js.async = 1;
+			fjs.parentNode.insertBefore(js, fjs);
+		})(window, document, "script", "Botsonic", "https://d1m9uqhmlogh4h.cloudfront.net/CDN/botsonic.min.js");
+		Botsonic("init", {
+			serviceBaseUrl: "https://api.writesonic.com",
+			token: "9fed897a-7f4c-46f0-a77f-10789e28fa5b",
+		});
+		</script>
 
 	</div>
 

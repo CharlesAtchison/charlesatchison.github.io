@@ -143,3 +143,18 @@ $grid-spacing: {{ site.data.settings.post_settings.grid_spacing }}px;
 
 @import "_includes/_listing";
 @import "_includes/_hero";
+
+// - - - - - - - - - - Chatbot Hint Styling
+
+.chatbot-hint {
+    position: fixed;
+    bottom: 80px; // Adjust based on the chatbot's position
+    right: 20px;  // Adjust based on the chatbot's position
+    background-color: $accent-color; // Using your accent color
+    color: $text-light-color; // Using your text light color
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease-out;
+}

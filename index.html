@@ -50,9 +50,6 @@ featured_image: /images/demo/home.jpg
 	</div>
 </section>
 
-<!-- Chatbot hint bubble text -->
-<div id="chatbot-hint" class="chatbot-hint">Click here to ask Robo Charles questions!</div>
-
 <!-- Chatbot Script -->
 <script>
     (function (w, d, s, o, f, js, fjs) {
@@ -70,24 +67,4 @@ featured_image: /images/demo/home.jpg
         serviceBaseUrl: "https://api.writesonic.com",
         token: "9fed897a-7f4c-46f0-a77f-10789e28fa5b",
     });
-</script>
-<script>
-    // Set up a function to hide the hint
-    function hideChatbotHint() {
-        document.getElementById('chatbot-hint').style.display = 'none';
-    }
-
-    // Poll for the existence of the Botsonic button
-    function setupChatbotHintBehavior() {
-        let interval = setInterval(() => {
-            let botsonicButton = document.querySelector('body > div:last-child');
-            if (botsonicButton) {
-                botsonicButton.addEventListener('click', hideChatbotHint);
-                clearInterval(interval);
-            }
-        }, 500);
-    }
-    
-    // Begin polling when the window loads
-    window.onload = setupChatbotHintBehavior;
 </script>

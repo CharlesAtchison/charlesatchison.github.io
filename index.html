@@ -51,7 +51,7 @@ featured_image: /images/demo/home.jpg
 </section>
 
 <!-- Chatbot script and bubble text -->
-<div id="chatbot-hint" class="chatbot-hint" onclick="hideHint()">Click here to ask Robo Charles questions!</div>
+<div id="chatbot-hint" class="chatbot-hint">Click here to ask Robo Charles questions!</div>
 
 <script>
       (function (w, d, s, o, f, js, fjs) {
@@ -72,18 +72,17 @@ featured_image: /images/demo/home.jpg
         token: "9fed897a-7f4c-46f0-a77f-10789e28fa5b",
       });
 
-	  // Function to hide the hint
-      function hideHint() {
-          document.getElementById('chatbot-hint').style.display = 'none';
-          // Optionally, re-display after some time of inactivity, e.g., 5 minutes
-          setTimeout(function() {
-              document.getElementById('chatbot-hint').style.display = 'block';
-          }, 300000);  // 300,000 milliseconds = 5 minutes
+	  // Function to hide the hint when chatbot button is clicked
+      function setupChatbotHintBehavior() {
+          let botsonicButton = document.querySelector('.botsonic-button');
+          if (botsonicButton) {
+              botsonicButton.addEventListener('click', function() {
+                  document.getElementById('chatbot-hint').style.display = 'none';
+              });
+          }
       }
       
-      // Trigger the Botsonic widget when hint is clicked
-      document.getElementById('chatbot-hint').addEventListener('click', function() {
-          Botsonic('open');
-      });
+      // Try to attach the behavior once the page and chatbot script is loaded
+      window.onload = setupChatbotHintBehavior;
 
 </script>

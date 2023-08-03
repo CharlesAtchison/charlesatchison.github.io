@@ -150,8 +150,8 @@ $grid-spacing: {{ site.data.settings.post_settings.grid_spacing }}px;
     position: fixed;
     bottom: 80px; // Adjust based on the chatbot's position
     right: 20px;  // Adjust based on the chatbot's position
-    background-color: $accent-color; // Using your accent color
-    color: $text-light-color; // Using your text light color
+    background-color: rgb(200, 161, 22); // Using your accent color
+    color: rgb(255, 255, 255); // Using your text light color
     padding: 10px 15px;
     border-radius: 20px;
     font-size: 0.9em;

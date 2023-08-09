@@ -1,70 +1,166 @@
----
-layout: default
-title: Hello!
-description: Hey there!
-featured_image: /images/demo/home.jpg
----
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Charles Atchison | Data Scientist | Personal Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/9295adc30a.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="header"></div>
+        <div class="container">
+            <div class="header-text">
+                <p>
+                    <h1>Hey, I'm <span>Charles</span><br></h1>
+                </p>
+            </div>
+        </div>
+        <!-- -------------About---------------------->
+        <div id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="about-col-1">
+                        <img src="images/pro_profile_pic.jpeg" alt="apple image">
+                    </div>
+                    <div class="about-col-2">
+                        <h1 class="sub-title">About Me</h1>
+                        <p>
+                            I am an enthusiastic data scientist who is deeply passionate about diving into code and fully immersing myself in the process of building something remarkable out of nothing. Throughout my journey, I have primarily been self-taught, fueled by an unwavering passion for the industry. I firmly believe that the vastness of knowledge in this field is boundless, and that realization is what truly excites me. The prospect of constant learning and discovering better approaches to problem-solving fuels my drive to excel. I am always eager to embrace fresh challenges and contribute to a shared objective with my expertise.
+                        </p>
 
-<section class="hero">
-
-	<div class="hero__image" style="background-image: url({{ page.featured_image | relative_url }})">
-		<div class="hero__overlay"></div>
-	</div>
-
-	<div class="wrap">
-
-		<h1>Hello there!</h1>
-		<p>Check out some of what I've been working on down below!</p>
-
-		{% include socials.html %} 
-		<script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
-
-	</div>
-
-</section>
-
-<section class="listing">
-
-	<div class="wrap">
-
-		{% for project in site.projects reversed %}
-
-		<article class="post">
-
-			<div class="post__image-wrap">
-				<div class="post__image" style="background-image: url({{ project.thumbnail_image | relative_url }})"></div>
-			</div>
-
-			<div class="post__content-wrap">
-				<div class="post__content">
-					<h2 class="post__title"><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h2>
-					<p class="post__subtitle">{{ project.subtitle }}</p>
-					<p class="post__description">{{ project.description }}</p>
-				</div>
-			</div>
-
-		</article>
-
-		{% endfor %}
-
-	</div>
-</section>
-
-<!-- Chatbot Script -->
-<script>
-    (function (w, d, s, o, f, js, fjs) {
-        w["botsonic_widget"] = o;
-        w[o] = w[o] || function () {
-            (w[o].q = w[o].q || []).push(arguments);
-        };
-        (js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);
-        js.id = o;
-        js.src = f;
-        js.async = 1;
-        fjs.parentNode.insertBefore(js, fjs);
-    })(window, document, "script", "Botsonic", "https://d1m9uqhmlogh4h.cloudfront.net/CDN/botsonic.min.js");
-    Botsonic("init", {
-        serviceBaseUrl: "https://api.writesonic.com",
-        token: "9fed897a-7f4c-46f0-a77f-10789e28fa5b",
-    });
-</script>
+                        <div class="tab-titles">
+                            <p class="tab-links" onclick="opentab(event, 'skills')">Skills</p>
+                            <p class="tab-links active-link" onclick="opentab(event, 'experience')">Experience</p>
+                            <p class="tab-links" onclick="opentab(event, 'education')">Education</p>
+                        </div>                        
+                        <div class="tab-contents" id="skills">
+                            <ul>
+                                <li><span>Languages</span><br>Proficient in Python, Swift, C#, HTML5, CSS, SCSS, and Javascript.</li>
+                                <li><span>Data Science and Machine Learning</span><br>Expertise in Panas, PySpark, TensorFlow, Numpy, Jupyter Notebook, Jupyter Lab, Lambda, and AWS.</li>
+                                <li><span>DevOps and Cloud</span><br>Experience with Docker, AWS, and Apache Airflow.</li>
+                                <li><span>Data Visualization</span><br>Skilled in Tableau and Microsoft Excel.</li>
+                                <li><span>Version Control and Collaboration</span><br>Proficient with Git and GitHub.</li>
+                                <li><span>Front-End Frameworks</span><br>Command over jQuery.</li>
+                                <li><span>Web Scraping</span><br>Proficiency in BeautifulSoup.</li>
+                                <li><span>Mobile Development</span><br>Experience with Apple technologies and Swift.</li>
+                                <li><span>Data Analysis and Manipulation</span><br>Expertise in Pandas and NumPy.</li>
+                                <li><span>Database Management</span><br>Experience with MySQL, PostgreSQL, and MongoDB.</li>
+                                <li><span>Back-End Frameworks</span><br>Hands-on experience with Django.</li>
+                                <li><span>Statistical Analysis</span><br>Knowledge of SciPy, Statsmodels, and Scikit-Learn.</li>
+                                <li><span>Collaboration and Communication</span><br>Proficiency in platforms like Slack, Discord, and GitHub Pages.</li>
+                                <li><span>Interactive Web Experiences</span><br>Experience with Canvas.</li>
+                                <li><span>Real-Time Data Processing</span><br>Expertise with Kafka.</li>
+                                <li><span>Markdown and Documentation</span><br>Experience in using Markdown for documentation.</li>
+                                <li><span>Operating Systems</span><br>Familiar with Ubuntu as an operating system.</li>
+                                <li><span>Database Querying</span><br>Strong command of SQL.</li>
+                                <li><span>R Programming</span><br>Knowledge of R for implementing statistical models and visualization techniques.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tab-contents" id="experience">
+                            <ul>
+                                <li><span>Intelliware Solutions - Data Scientist (2020 - Present)</span><br>Developing AI-driven solutions, using AI and Machine Learning to extract valuable insights, fostering innovation across various industries.</li>
+                                <li><span>Contract Data Engineer (2020 - 2022)</span><br>Honing skills in Python development within the Django framework, managing ETL processes on large data lakes, establishing data pipelines, and message aggregation using AWS, PostgreSQL, and SQL.</li>
+                                <li><span>4s Pipeline Services - Project Manager (2019 - 2020)</span><br>Managing pipeline construction and directional drilling services, introducing data analytics into the project management process, and handling resource allocation and budget constraints.</li>
+                                <li><span>United States Air Force - Various Roles (2010 - 2017)</span><br>Performing various management roles including Security Operations, Tactical Response Force, Nuclear Security Operations, and Logistics and Operations.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tab-contents" id="education">
+                            <ul>
+                                <li><span>Data Science</span><br>Performing Data Analysis</li>
+                                <li><span>Data Science</span><br>Performing Data Analysis</li>
+                                <li><span>Data Science</span><br>Performing Data Analysis</li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- -------------Services--------------------
+        <div id="services">
+            <div class="container">
+                <h1 class="sub-title">My Services</h1>
+                <div class="services-list">
+                    <div>
+                        <i class="fa-solid fa-chart-simple"></i>
+                        <h2>Data Analysis</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid rem modi autem quas dolorem ducimus alias,
+                             suscipit maiores molestias mollitia, veritatis qui ullam cupiditate, repellendus officia minima laudantium dignissimos dolor?
+                        </p>
+                        <a href="#">Learn more</a>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-code"></i>
+                        <h2>Web Design</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid rem modi autem quas dolorem ducimus alias,
+                             suscipit maiores molestias mollitia, veritatis qui ullam cupiditate, repellendus officia minima laudantium dignissimos dolor?
+                        </p>
+                        <a href="#">Learn more</a>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-code"></i>
+                        <h2>Web Design</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid rem modi autem quas dolorem ducimus alias,
+                             suscipit maiores molestias mollitia, veritatis qui ullam cupiditate, repellendus officia minima laudantium dignissimos dolor?
+                        </p>
+                        <a href="#">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- --------------------Portfolio----------------------- -->
+        <div id="portfolio">
+            <div class="container">
+                <h1 class="sub-title">My Work</h1>
+                <div class="work-list">
+                    <div class="work">
+                        <p class="work-title">Bitcoin Price Prediction</p>
+                        <img src="images/bitcoin.jpeg" alt="favicon image">
+                        <div class="layer">
+                            <h3>Bitcoin Price Prediction Time-Series Project</h3>
+                            <p>
+                                This endeavor aims to identify cyclical patterns and predict Bitcoin's price with a higher accuracy than baseline models. The dataset, sourced from Kaggle, encompasses Bitcoin's open, high, low, and closing prices, alongside transaction volumes. Key deliverables include a well-documented Jupyter notebook, a comprehensive README, and Python modules that facilitate data acquisition and preprocessing.
+                            </p>
+                            <a href="bitcoin_project.html" target="_blank"><i class="fa-solid fa-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <p class="work-title">American Sentiment Analysis</p>
+                        <img src="images/glass_half_full.jpeg" alt="favicon image">
+                        <div class="layer">
+                            <h3>Discovering drivers of Americas prospective thinking</h3>
+                            <p>
+                                The project uses American Trends Panel Datasets to predict American sentiments, especially pessimism about the future. Data from Pew Research covers diverse aspects of American life, including demographics. Analysis revealed that public education and U.S. economics are key drivers of pessimism, while age and income aren't significant.
+                            </p>
+                            <a href="https://github.com/american-perspectives-capstone/american-attitudes/tree/main" target="_blank" rel="noopener"><i class="fa-solid fa-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <p class="work-title">NLP - Github Lang Prediction</p>
+                        <img src="images/nlp.jpeg" alt="image of digital AI">
+                        <div class="layer">
+                            <h3>Natural Language Processing - Github Coding Language Prediction</h3>
+                            <p>
+                                The "Natural Language Processing - Github Programming Language Prediction" project aims to predict a repository's programming language based on its README file content. By scraping 30,000 GitHub README files and primarily focusing on Javascript repositories, the team developed a model achieving over 94.8% accuracy in predictions. The project encompasses the entire data science pipeline, including data acquisition, preprocessing, exploration, modeling, and presentation.
+                            </p>
+                            <a href="https://github.com/Codeup-NLP-Project/NLP-Project" target="_blank" rel="noopener"><i class="fa-solid fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://github.com/CharlesAtchison?tab=repositories" class="btn" target="_blank" rel="noopener">See more</a>
+            </div>
+        </div>
+        
+        <div id="contact-me"></div>
+        <div class="copyright" id="copyright-content"></div>
+        <script src="https://kit.fontawesome.com/9295adc30a.js" crossorigin="anonymous"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>

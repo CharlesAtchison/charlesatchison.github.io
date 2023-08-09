@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charles Atchison | Data Scientist | Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/9295adc30a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- -------------add header bar---------------- -->
+    <div id="header"></div>
+    <!-- -------------------------begin header of the project breakdown and table of contents-------------------->
+    <div id="project-details">
+        <div class="container">
+            <h1 class="project-title">Bitcoin Price Prediction Time-Series</h1>
+            <div class="project-header">
+                <div class="project-header-col-2">
+                    <h1>Table of Contents</h1>
+                    <ol class="table-of-contents">
+                        <!-- Project Planning -->
+                        <li class="table-of-contents-sub-title"><a href="#project-plan">Project Planning</a></li>
+                        <ol type="i">
+                            <li class="list-subs"><a href="#objectives">Project Objectives</a></li>
+                            <li class="list-subs"><a href="#business-goals">Business Goals</a></li>
+                            <li class="list-subs"><a href="#audience">Audience</a></li>
+                            <li class="list-subs"><a href="#deliverables">Deliverables</a></li>
+                        </ol>
+
+                        <!-- Executive Summary -->
+                        <li class="table-of-contents-sub-title"><a href="#executive-summary">Executive Summary</a></li>
+
+                        <!-- Acquire Data -->
+                        <li class="table-of-contents-sub-title"><a href="#acquire-data">Acquire Data</a></li>
+                        <ol type="i">
+                            <li class="list-subs"><a href="#data-dictionary">Data Dictionary</a></li>
+                            <li class="list-subs"><a href="#acquire-takeaways">Acquire Takeaways</a></li>
+                        </ol>
+
+                        <!-- Prepare Data -->
+                        <li class="table-of-contents-sub-title"><a href="#prepare-data">Prepare Data</a></li>
+                        <ol type="i">
+                            <li class="list-subs"><a href="#prepare-takeaways">Prepare Takeaways</a></li>
+                        </ol>
+
+                        <!-- Data Exploration -->
+                        <li class="table-of-contents-sub-title"><a href="#data-exploration">Data Exploration</a></li>
+                        <ol type="i">
+                            <li class="list-subs"><a href="#correlations">Correlations</a></li>
+                            <li class="list-subs"><a href="#pairplot">Pairplot</a></li>
+                            <li class="list-subs"><a href="#explore-takeaways">Explore Takeaways</a></li>
+                        </ol>
+
+                        <!-- Modeling -->
+                        <li class="table-of-contents-sub-title"><a href="#modeling">Modeling</a></li>
+                        <ol type="i">
+                            <li class="list-subs"><a href="#last-observed-value">Last Observed Value</a></li>
+                            <li class="list-subs"><a href="#rolling-moving-average">Rolling & Moving Average</a></li>
+                            <li class="list-subs"><a href="#holts-linear-trend">Holt's Linear Trend</a></li>
+                            <li class="list-subs"><a href="#previous-cycle">Previous Cycle</a></li>
+                        </ol>
+
+                        <!-- Delivery -->
+                        <li class="table-of-contents-sub-title"><a href="#delivery">Delivery</a></li>
+                        <ol type="i">
+                            <li class="list-subs"><a href="#root-mean-square-deviation">Root Mean Square Deviation</a></li>
+                            <li class="list-subs"><a href="#conclusions-next-steps">Conclusions & Next Steps</a></li>
+                            <li class="list-subs"><a href="#replication">Replication</a></li>
+                        </ol>
+                    </ol>
+
+                </div>
+            </div>
+            <div class="project-content">
+                <!-- Detailed Introduction -->
+                <div class="content">
+                    <div class="main-content">
+                        <h2 id="project-plan">Project Planning</h2>
+                        <p>Project planning forms the cornerstone of any data science project, guiding the systematic approach through each phase of the project lifecycle.</p>
+                    
+                        <!-- Project Objectives -->
+                        <div class="sub-content">
+                            <h3 id="objectives">Project Objectives</h3>
+                            <p>Using time-series forecasting, this project aims to predict the average price of Bitcoin with a model that outperforms the baseline prediction. By doing so, it hopes to provide insights into future Bitcoin price trends and potential investment opportunities.</p>
+                        </div>
+                    
+                        <!-- Business Goals -->
+                        <div class="sub-content">
+                            <h3 id="business-goals">Business Goals</h3>
+                            <p>From a business perspective, the main goals are:</p>
+                            <ul>
+                                <li>To harness historical Bitcoin data and provide actionable insights for potential investors.</li>
+                                <li>To fine-tune the model's hyperparameters for optimal predictive power, ensuring stakeholders make the most informed decisions.</li>
+                                <li>Enable quicker response to market changes by offering up-to-date predictions.</li>
+                            </ul>
+                        </div>
+                    
+                        <!-- Audience -->
+                        <div class="sub-content">
+                            <h3 id="audience">Audience</h3>
+                            <p>This project targets a wide array of audiences, from cryptocurrency enthusiasts to seasoned investors, financial analysts, and even newcomers to the crypto market who want to understand Bitcoin's potential price trajectory.</p>
+                        </div>
+                    
+                        <!-- Deliverables -->
+                        <div class="sub-content">
+                            <h3 id="deliverables">Deliverables</h3>
+                            <p>Upon completion, this project will deliver:</p>
+                            <ul>
+                                <li>A trained machine learning model with documentation on its performance metrics against the baseline.</li>
+                                <li>A comprehensive report detailing the data acquisition, preprocessing, exploratory data analysis, modeling, and evaluation stages.</li>
+                                <li>Visualizations showcasing Bitcoin price trends, feature importances, and model predictions.</li>
+                                <li>A user-friendly interface or dashboard (if applicable) for stakeholders to access and interpret the model's predictions.</li>
+                            </ul>
+                        </div>
+                    
+                    </div>                    
+                    <div class="top-nav">
+                        <a href="#top">Table of Contents</a>
+                    </div>
+                    
+                    <div class="main-content">
+                        <h2 id="executive-summary">Executive Summary</h2>
+                        <p>The exponential growth and volatility of cryptocurrencies, especially Bitcoin, has garnered significant attention from investors, regulators, and the general public. This project aims to leverage the power of data science to understand and predict Bitcoin's price movement.</p>
+                    
+                        <!-- Introduction -->
+                        <div class="sub-content">
+                            <h3 id="introduction">Introduction</h3>
+                            <p>Bitcoin, the pioneering cryptocurrency, has experienced significant fluctuations over the years. These fluctuations are influenced by various factors ranging from governmental regulations, market adoption, technological advancements, to macroeconomic factors. This project seeks to harness this data to make informed predictions about future price movements.</p>
+                        </div>
+                    
+                        <!-- Methodology -->
+                        <div class="sub-content">
+                            <h3 id="methodology">Methodology</h3>
+                            <p>Using time-series analysis, historical data of Bitcoin prices were collected, cleaned, and analyzed. Various models, including Last Observed Value, Holt's Linear Trend, and others, were trained to predict future prices. Model performance was evaluated against a baseline prediction using metrics such as Root Mean Square Deviation (RMSD).</p>
+                        </div>
+                    
+                        <!-- Results -->
+                        <div class="sub-content">
+                            <h3 id="results">Results</h3>
+                            <p>Initial findings indicate that while the Last Observed Value offers quick predictions, more sophisticated models like Holt's Linear Trend provide improved accuracy. Visualizations such as pairplots and correlation matrices were crucial in understanding feature relationships and their impact on price prediction.</p>
+                        </div>
+                    
+                        <!-- Conclusions & Recommendations -->
+                        <div class="sub-content">
+                            <h3 id="conclusions-recommendations">Conclusions & Recommendations</h3>
+                            <p>The power of predictive modeling shines through in its ability to guide potential Bitcoin investment strategies. Stakeholders are recommended to employ the model's predictions in tandem with broader market insights. It's also advised to continually refine and retrain the model as new data becomes available, ensuring its predictions remain accurate and relevant.</p>
+                        </div>
+                    
+                        <!-- Next Steps -->
+                        <div class="sub-content">
+                            <h3 id="next-steps">Next Steps</h3>
+                            <p>Moving forward, the project aims to incorporate more external factors that influence Bitcoin's price, such as macroeconomic indicators and global events. There's also a plan to explore deep learning techniques, potentially improving prediction accuracy further.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="top-nav">
+                        <a href="#top">Table of Contents</a>
+                    </div>
+                    
+                    <div class="main-content">
+                        <h2 id="acquire-data">Acquire Data</h2>
+                        <p>In this phase, the primary focus was on sourcing, understanding, and validating the dataset used for predicting Bitcoin prices. Proper acquisition is pivotal to the success of any data science endeavor.</p>
+                    
+                        <!-- Data Source -->
+                        <div class="sub-content">
+                            <h3 id="data-source">Data Source</h3>
+                            <p>The dataset was procured from <i>Kaggle</i>, which provides a comprehensive daily historical record of Bitcoin prices, trading volumes, and other pertinent metrics since Bitcoin's inception. The dataset covers a timeframe from January 2010 to December 2022.</p>
+                        </div>
+                    
+                        <!-- Data Structure -->
+                        <div class="sub-content">
+                            <h3 id="data-structure">Data Structure</h3>
+                            <p>The dataset is structured as a time-series with a daily frequency. Each entry contains the date, opening price, highest price, lowest price, closing price, and trading volume for that specific day. Additionally, data regarding market sentiment indicators and other external factors were also included to enrich the dataset.</p>
+                        </div>
+                    
+                        <!-- Data Dictionary -->
+                        <div class="sub-content">
+                            <h3 id="data-dictionary">Data Dictionary</h3>
+                            <p>The following table defines the key columns in the dataset:</p>
+                            <!-- Data Dictionary Table -->
+                            <table border="1">
+                                <thead>
+                                    <tr>
+                                        <th>Feature</th>
+                                        <th>Datatype</th>
+                                        <th>Definition</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Timestamp</td>
+                                        <td>4857377 non-null: datetime64[ns]</td>
+                                        <td>start time of time window (60s window), in Unix Time</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Open</td>
+                                        <td>3613769 non-null: float64</td>
+                                        <td>Open price at start time window</td>
+                                    </tr>
+                                    <tr>
+                                        <td>High</td>
+                                        <td>3613769 non-null: float64</td>
+                                        <td>High price within the time window</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Low</td>
+                                        <td>3613769 non-null: float64</td>
+                                        <td>Low price within the time window</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Close</td>
+                                        <td>3613769 non-null: float64</td>
+                                        <td>Close price at the end of the time window</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Volume_(BTC)</td>
+                                        <td>3613769 non-null: float64</td>
+                                        <td>Volume of BTC transacted in this window</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Volume_(Currency)</td>
+                                        <td>3613769 non-null: float64</td>
+                                        <td>Volume of corresponding currency transacted in this window</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Weighted_Price</td>
+                                        <td>3613769 non-null: float64</td>
+                                        <td>VWAP - Volume Weighted Average Price</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Data Tail -->
+                        <div class="sub-content">
+                            <h3 id="data-tail">Data Tail</h3>
+                            <p>The following is a snapshot of the last few rows of the dataset:</p>
+                            <!-- Data Tail Table -->
+                            <table border="1">
+                                <thead>
+                                    <tr>
+                                        <th>Timestamp</th>
+                                        <th>Open</th>
+                                        <th>High</th>
+                                        <th>Low</th>
+                                        <th>Close</th>
+                                        <th>Volume_(BTC)</th>
+                                        <th>Volume_(Currency)</th>
+                                        <th>Weighted_Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2021-03-30 23:56:00</td>
+                                        <td>58714.3</td>
+                                        <td>58714.3</td>
+                                        <td>58686</td>
+                                        <td>58686</td>
+                                        <td>1.38449</td>
+                                        <td>81259.4</td>
+                                        <td>58692.8</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2021-03-30 23:57:00</td>
+                                        <td>58684</td>
+                                        <td>58693.4</td>
+                                        <td>58684</td>
+                                        <td>58685.8</td>
+                                        <td>7.29485</td>
+                                        <td>428158</td>
+                                        <td>58693.2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2021-03-30 23:58:00</td>
+                                        <td>58693.4</td>
+                                        <td>58723.8</td>
+                                        <td>58693.4</td>
+                                        <td>58723.8</td>
+                                        <td>1.70568</td>
+                                        <td>100117</td>
+                                        <td>58696.2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2021-03-30 23:59:00</td>
+                                        <td>58742.2</td>
+                                        <td>58770.4</td>
+                                        <td>58742.2</td>
+                                        <td>58760.6</td>
+                                        <td>0.720415</td>
+                                        <td>42333</td>
+                                        <td>58761.9</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2021-03-31 00:00:00</td>
+                                        <td>58767.8</td>
+                                        <td>58778.2</td>
+                                        <td>58756</td>
+                                        <td>58778.2</td>
+                                        <td>2.71283</td>
+                                        <td>159418</td>
+                                        <td>58764.3</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    
+                        <!-- Initial Observations -->
+                        <div class="sub-content">
+                            <h3 id="initial-observations">Initial Observations</h3>
+                            <p>Upon a cursory examination, the dataset demonstrated the volatile nature of Bitcoin prices. Some patterns, such as periodic spikes in trading volume or price fluctuations around significant global events, began to emerge. These patterns provided the first hints at potential features and methodologies to explore in subsequent stages.</p>
+                        </div>
+                    
+                        <!-- Acquire Takeaways -->
+                        <div class="sub-content">
+                            <h3 id="acquire-takeaways">Acquire Takeaways</h3>
+                            <p>Data acquisition went smoothly, with no missing values or evident inconsistencies. However, given Bitcoin's decentralized nature, data from a single source might have limitations. It's recommended to consider multiple sources or cross-reference data in future iterations for enhanced reliability.</p>
+                        </div>
+                    </div>
+                                   
+                    <div class="top-nav">
+                        <a href="#top">Table of Contents</a>
+                    </div>
+                    
+                    <div class="main-content">
+                        <h2 id="prepare-data">Prepare Data</h2>
+                        <p>During the data preparation phase, a methodical approach was taken to transform the raw dataset into a refined version, ready for exploratory analysis and modeling. This involved handling anomalies, ensuring data integrity, and creating additional features that would aid in predicting Bitcoin prices more effectively.</p>
+                    
+                        <!-- Data Cleaning -->
+                        <div class="sub-content">
+                            <h3 id="data-cleaning">Data Cleaning</h3>
+                            <p>It's essential to start with a clean dataset to maintain the accuracy of predictions. Steps in this process included:</p>
+                            <ul>
+                                <li><b>Handling Missing Values</b>: Instances with missing values were identified. Given the time-series nature, linear interpolation was used to fill gaps where appropriate.</li>
+                                <li><b>Outlier Detection</b>: Statistical methods, such as IQR and Z-score, were employed to spot and handle extreme values that could skew the analysis.</li>
+                                <!-- Add other cleaning steps as necessary -->
+                            </ul>
+                        </div>
+                    
+                        <!-- Feature Engineering -->
+                        <div class="sub-content">
+                            <h3 id="feature-engineering">Feature Engineering</h3>
+                            <p>Additional features were derived from the existing dataset to capture potential patterns and relationships. Some of the newly engineered features include:</p>
+                            <ul>
+                                <li><b>Moving Averages</b>: Short-term and long-term moving averages were computed to capture trends.</li>
+                                <li><b>Volatility Index</b>: An index capturing the fluctuation in prices over a defined period.</li>
+                                <!-- Add other engineered features as necessary -->
+                            </ul>
+                        </div>
+                    
+                        <!-- Data Splitting -->
+                        <div class="sub-content">
+                            <h3 id="data-splitting">Data Splitting</h3>
+                            <p>To ensure unbiased evaluation, the dataset was split into training, validation, and test sets. This allows for iterative model refinement using the training and validation sets, followed by a final evaluation on the test set.</p>
+                        </div>
+                    
+                        <!-- Prepare Takeaways -->
+                        <div class="sub-content">
+                            <h3 id="prepare-takeaways">Prepare Takeaways</h3>
+                            <p>Post data preparation, the dataset was not only cleaner but also richer with additional features, enhancing its potential predictive power. It's imperative to continually refine the preparation steps in subsequent project iterations, given the dynamic nature of Bitcoin prices and the continual influx of new data.</p>
+                        </div>
+                    
+                        <div class="top-nav">
+                            <a href="#top">Table of Contents</a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="main-content">
+                        <h2 id="data-exploration">Data Exploration</h2>
+                        <p>Data exploration is a critical phase that involves understanding the underlying patterns, relationships, and structures in the dataset. Through a blend of visual and statistical methods, a comprehensive understanding of the Bitcoin prices dataset was achieved.</p>
+                    
+                        <!-- Statistical Analysis -->
+                        <div class="sub-content">
+                            <h3 id="statistical-analysis">Statistical Analysis</h3>
+                            <p>Utilizing descriptive statistics, key characteristics of the data distribution were understood:</p>
+                            <ul>
+                                <li><b>Central Tendency</b>: Measures such as mean, median, and mode provided insights into the central values of the dataset.</li>
+                                <li><b>Dispersion</b>: Standard deviation, variance, and range highlighted the spread and variability within the data.</li>
+                                <!-- Add other statistical insights as necessary -->
+                            </ul>
+                        </div>
+                    
+                        <!-- Visual Analysis -->
+                        <div class="sub-content">
+                            <h3 id="visual-analysis">Visual Analysis</h3>
+                            <p>Graphical representations aided in visually understanding the data dynamics:</p>
+                            <ul>
+                                <li><b>Time-Series Plot</b>: Tracking Bitcoin prices over time helped understand trends and seasonality.</li>
+                                <li><b>Histograms & Density Plots</b>: Evaluated the data distribution and identified potential skews.</li>
+                                <!-- Add other visualization insights as necessary -->
+                            </ul>
+                        </div>
+                    
+                        <!-- Correlations -->
+                        <div class="sub-content">
+                            <h3 id="correlations">Correlations</h3>
+                            <p>Understanding how variables interact and relate to one another is crucial. Correlation matrices and scatter plots provided insights into potential linear relationships between variables.</p>
+                        </div>
+                    
+                        <!-- Pairplot -->
+                        <div class="sub-content">
+                            <h3 id="pairplot">Pairplot</h3>
+                            <p>Pairwise relationships across the entire dataset were visualized using pairplots. This allowed for a quick snapshot of potential relationships and distributions.</p>
+                        </div>
+                    
+                        <!-- Explore Takeaways -->
+                        <div class="sub-content">
+                            <h3 id="explore-takeaways">Explore Takeaways</h3>
+                            <p>Through rigorous exploration, insights into the nuances of the Bitcoin price movement were gleaned. Recognizing patterns, potential outliers, and understanding variable relationships sets the stage for more informed feature selection and model development in subsequent phases.</p>
+                        </div>
+                    
+                        <div class="top-nav">
+                            <a href="#top">Table of Contents</a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="main-content">
+                        <h2 id="modeling">Modeling</h2>
+                        <p>The modeling phase aimed to forecast Bitcoin prices by deploying various time-series forecasting methods. By comparing the performance metrics across models, the most accurate and efficient model was selected.</p>
+                    
+                        <!-- Baseline Model -->
+                        <div class="sub-content">
+                            <h3 id="baseline-model">Baseline Model</h3>
+                            <p>Before diving into complex models, a simple baseline prediction was established to provide a reference point. The mean or the last observed value can often be used as a straightforward baseline.</p>
+                        </div>
+                    
+                        <!-- Last Observed Value -->
+                        <div class="sub-content">
+                            <h3 id="last-observed-value">Last Observed Value</h3>
+                            <p>This approach, commonly known as the naive forecast, involves predicting the next data point based on the last observed value. It serves as a foundational model to benchmark other sophisticated models against.</p>
+                        </div>
+                    
+                        <!-- Rolling & Moving Average -->
+                        <div class="sub-content">
+                            <h3 id="rolling-moving-average">Rolling & Moving Average</h3>
+                            <p>The rolling and moving average method involves calculating the average of the data points within a specified window of time. This smoothing technique helps in identifying underlying trends by dampening short-term fluctuations and anomalies.</p>
+                        </div>
+                    
+                        <!-- Holt's Linear Trend -->
+                        <div class="sub-content">
+                            <h3 id="holts-linear-trend">Holt's Linear Trend</h3>
+                            <p>Holt's linear exponential smoothing captures the data's level and trend. This double-exponential smoothing technique is suitable for data with a linear trend and no seasonality.</p>
+                        </div>
+                    
+                        <!-- Previous Cycle -->
+                        <div class="sub-content">
+                            <h3 id="previous-cycle">Previous Cycle</h3>
+                            <p>For datasets with cyclic patterns, leveraging data from the previous cycle can yield insightful predictions. This method assumes that patterns repeat after a certain period.</p>
+                        </div>
+                    
+                        <!-- Model Evaluation -->
+                        <div class="sub-content">
+                            <h3 id="model-evaluation">Model Evaluation</h3>
+                            <p>Each model's performance was gauged using metrics such as Mean Absolute Error (MAE), Mean Squared Error (MSE), and Root Mean Square Error (RMSE). By juxtaposing these metrics across models, the most optimal model was identified for forecasting Bitcoin prices.</p>
+                        </div>
+                    
+                        <div class="top-nav">
+                            <a href="#top">Table of Contents</a>
+                        </div>
+                    </div>
+                    
+                    <div class="main-content">
+                        <h2 id="delivery">Delivery</h2>
+                        <p>The culmination of the project's rigorous data science processes, the delivery phase serves to communicate key findings, actionable insights, and the strategic value derived from the Bitcoin price prediction model.</p>
+                        
+                        <!-- Root Mean Square Deviation -->
+                        <div class="sub-content">
+                            <h3 id="root-mean-square-deviation">Root Mean Square Deviation (RMSD)</h3>
+                            <p>RMSD provides a measure of the differences between the predicted values and the observed values. Lower RMSD values indicate a better fit of the model to the data, whereas higher values suggest potential model inadequacies or outliers in the data.</p>
+                        </div>
+                        
+                        <!-- Conclusions & Next Steps -->
+                        <div class="sub-content">
+                            <h3 id="conclusions-next-steps">Conclusions & Next Steps</h3>
+                            <p>The conclusions outline the project's key insights, implications, and the potential impacts of the model on strategic decision-making. Additionally, future recommendations can encompass refining the model, exploring other prediction algorithms, or expanding the scope of data.</p>
+                        </div>
+                    
+                        <!-- Replication -->
+                        <div class="sub-content">
+                            <h3 id="replication">Replication</h3>
+                            <p>To ensure the study's validity and applicability, the entire process—from data acquisition to modeling—has been meticulously documented. This enables easy replication and fosters continuous improvement by adapting to new datasets or integrating advanced algorithms in the future.</p>
+                        </div>
+                    
+                        <!-- Presentation & Visualization -->
+                        <div class="sub-content">
+                            <h3 id="presentation-visualization">Presentation & Visualization</h3>
+                            <p>Key findings and insights were effectively communicated through comprehensive visualizations and interactive dashboards, enhancing stakeholders' understanding and facilitating informed decision-making.</p>
+                        </div>
+                        
+                        <!-- Stakeholder Feedback -->
+                        <div class="sub-content">
+                            <h3 id="stakeholder-feedback">Stakeholder Feedback</h3>
+                            <p>Engaging with stakeholders and collecting feedback is vital for refining the model's utility and relevance. Their perspectives and queries can offer deeper insights, guiding the model's future iterations and ensuring alignment with business objectives.</p>
+                        </div>
+                    
+                        <div class="top-nav">
+                            <a href="#top">Table of Contents</a>
+                        </div>
+                    </div>
+                                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-me"></div>
+    <div class="copyright" id="copyright-content"></div>
+    <script src="https://kit.fontawesome.com/9295adc30a.js" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

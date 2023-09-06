@@ -48,6 +48,15 @@ function displayCustomModal(message) {
     }, 2000);
 }
 
+// Loading Spinner Function
+function displayLoadingSpinner() {
+    const spinner = document.createElement('div');
+    spinner.className = 'loading-spinner';
+    spinner.innerHTML = `<div class="spinner-content"><div class="loader"></div><p>Loading...</p></div>`;
+    document.body.appendChild(spinner);
+    return spinner;
+}
+
 // EmailJS Initialization
 (function(){
     emailjs.init("C_1ovVKS4xIsyq0yV");
@@ -91,39 +100,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
             console.log("Form element:", form); // Debugging: Check if form is found
 
-    if (form) {
-        console.log("Form element found");
-
-        form.addEventListener('submit', function(event) {
-            console.log("Form submit event triggered"); // Debugging: Form submit event
-            event.preventDefault();
-
-            // Disable the submit button to prevent multiple submissions
-            submitButton.disabled = true;
-
-            const templateParams = {
-                name: form.name.value,
-                email: form.email.value,
-                message: form.message.value
-            };
-            console.log("Template Parameters:", templateParams); // Debugging: Template Parameters
-
-            emailjs.send('service_7unekk1', 'template_u4rubzs', templateParams)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-
-                    // Display custom modal
-                    displayCustomModal('Thanks for your message, I\'ll get back to you in about 24 hours!');
-                }, function(error) {
-                    console.log('FAILED...', error);
-                    displayCustomModal('There was some issue, sorry, please try again.');
-
-                    // Re-enable the submit button
-                    submitButton.disabled = false;
+            if (form) {
+                console.log("Form element found");
+            
+                form.addEventListener('submit', function(event) {
+                    console.log("Form submit event triggered");
+                    event.preventDefault();
+            
+                    // Disable the submit button to prevent multiple submissions
+                    submitButton.disabled = true;
+            
+                    // Display loading spinner
+                    const spinner = displayLoadingSpinner();
+            
+                    const templateParams = {
+                        name: form.name.value,
+                        email: form.email.value,
+                        message: form.message.value
+                    };
+            
+                    emailjs.send('service_7unekk1', 'template_u4rubzs', templateParams)
+                        .then(function(response) {
+                            console.log('SUCCESS!', response.status, response.text);
+            
+                            // Remove loading spinner
+                            spinner.remove();
+            
+                            // Display custom modal
+                            displayCustomModal('Thanks for your message, I\'ll get back to you in about 24 hours!');
+                        }, function(error) {
+                            console.log('FAILED...', error);
+            
+                            // Remove loading spinner
+                            spinner.remove();
+            
+                            displayCustomModal('There was some issue, sorry, please try again.');
+            
+                            // Re-enable the submit button
+                            submitButton.disabled = false;
+                        });
                 });
-        });
-    } else {
-        console.log("Form element not found");
-    }
+            } else {
+                console.log("Form element not found");
+            }
     });
 });

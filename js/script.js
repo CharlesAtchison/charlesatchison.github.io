@@ -88,22 +88,25 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error fetching the copyright content:', error);
         });
 
-    // Load the contact me using fetch
-    fetch('contact_me.html')
+        fetch('contact_me.html')
         .then(response => response.text())
         .then(data => {
             
             document.getElementById('contact-me').innerHTML = data;
             console.log("Contact Me loaded"); // Debugging: Contact Me loaded
-
+    
             const contactMeDiv = document.getElementById('contact-me');
             if (contactMeDiv) {
                 contactMeDiv.innerHTML = data;
             } else {
                 console.error('Element with ID "contact-me" not found');
             }
+    
+            // Define the form element
+            const form = document.getElementById('contact-form'); // Using the ID from your HTML
+    
             const submitButton = form.querySelector('button[type="submit"]');
-
+    
             console.log("Form element:", form); // Debugging: Check if form is found
 
             if (form) {

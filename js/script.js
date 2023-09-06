@@ -24,57 +24,26 @@ function closemenu() {
     sidemenu.style.right = "-200px";
 }
 
+// Debugging Step 4: EmailJS Initialization
 (function(){
     emailjs.init("C_1ovVKS4xIsyq0yV");
+    console.log('EmailJS initialized'); // Debugging Step 7: Manual Testing
  })();
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Load the header using fetch
-    fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('header').innerHTML = data;
+    // ...existing code for loading header, copyright, and contact_me...
 
-            // Initialize your scripts that rely on the header here
-            var projectsMenuItem = document.querySelector("#sidemenu li:nth-child(4)");
-
-            projectsMenuItem.addEventListener("mouseenter", function () {
-                projectsMenuItem.classList.add("hover");
-            });
-
-            projectsMenuItem.addEventListener("mouseleave", function () {
-                projectsMenuItem.classList.remove("hover");
-            });
-        })
-        .catch(error => {
-            console.error('Error fetching the header content:', error);
-        });
-    
-    // Load the copyright using fetch
-    fetch('copyright.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('copyright-content').innerHTML = data;
-        })
-        .catch(error => {
-            console.error('Error fetching the copyright content:', error);
-        });
-    // Load the contact me using fetch
-    fetch('contact_me.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('contact-me').innerHTML = data;
-        })
-        .catch(error => {
-            console.error('Error fetching the Contact Me content:', error);
-        });
-
+    // Debugging Step 2: Form Element
     const form = document.getElementById('contact-form');
     
     if (form) { // Check if the form exists on the page
+        console.log('Form element found'); // Debugging Step 7: Manual Testing
+
+        // Debugging Step 5: Event Listener
         form.addEventListener('submit', function(event) {
             event.preventDefault();
-            
+            console.log('Form submitted'); // Debugging Step 7: Manual Testing
+
             // Create an object to hold the form data
             const templateParams = {
                 name: form.name.value,
@@ -82,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 message: form.message.value
             };
             
+            // Debugging Step 8: Template ID
             // Use emailjs.send() method
             emailjs.send('service_7unekk1', 'template_u4rubzs', templateParams)
                 .then(function(response) {
@@ -102,5 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     alert('There was some issue, sorry, please try again.');
                 });
         });
+    } else {
+        console.log('Form element not found'); // Debugging Step 7: Manual Testing
     }
 });

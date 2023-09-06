@@ -45,7 +45,7 @@ function displayCustomModal(message) {
     setTimeout(function() {
         modal.remove();
         window.location.href = 'index.html';
-    }, 5000);
+    }, 2000);
 }
 
 // EmailJS Initialization
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.log('SUCCESS!', response.status, response.text);
 
                     // Display custom modal
-                    displayCustomModal('Yay, your message was sent!');
+                    displayCustomModal('Thanks for your message, I\'ll get back to you in about 24 hours!');
                 }, function(error) {
                     console.log('FAILED...', error);
                     displayCustomModal('There was some issue, sorry, please try again.');

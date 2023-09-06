@@ -530,12 +530,14 @@ nav .fa-solid{
 .custom-modal {
     display: block;
     position: fixed;
-    z-index: 1;
+    z-index: 1001; /* To ensure it stays on top */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(8, 8, 8, 0.8); /* Consistent with your background color */
+    color: #fff; /* Consistent with your text color */
+    font-family: 'Poppins', sans-serif; /* Consistent with your font */
 }
 
 .modal-content {
@@ -543,7 +545,7 @@ nav .fa-solid{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #fff;
+    background-color: #262626; /* Consistent with your other backgrounds */
     padding: 20px;
     border-radius: 8px;
     text-align: center;
@@ -551,6 +553,8 @@ nav .fa-solid{
 
 .close-button {
     cursor: pointer;
+    color: #ED5A08; /* Consistent with your highlight color */
+    font-size: 1.5em;
 }
 
 @media only screen and (max-width: 600px){

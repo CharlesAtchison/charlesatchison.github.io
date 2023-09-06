@@ -83,3 +83,31 @@ Botsonic("init", {
     serviceBaseUrl: "https://api.writesonic.com",
     token: "9fed897a-7f4c-46f0-a77f-10789e28fa5b",
 });
+
+(function(){
+    emailjs.init("C_1ovVKS4xIsyq0yV");
+ })();
+
+ document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Create an object to hold the form data
+      const templateParams = {
+        name: form.name.value,
+        email: form.email.value,
+        message: form.message.value
+      };
+      
+      // Use emailjs.send() method
+      emailjs.send('service_7unekk1', 'template_u4rubzs', templateParams) // Replace 'your_template_id' with your actual template ID
+        .then(function() {
+          console.log('Email successfully sent!');
+        }, function(error) {
+          console.log('Error sending email:', error);
+        });
+    });
+  });
+  

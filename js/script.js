@@ -46,18 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             document.getElementById('header').innerHTML = data;
             console.log("Header loaded"); // Debugging: Header loaded
-
-            // Initialize your scripts that rely on the header here
-            var projectsMenuItem = document.querySelector("#sidemenu li:nth-child(4)");
-            console.log("Projects menu item:", projectsMenuItem); // Debugging: Projects menu item
-
-            projectsMenuItem.addEventListener("mouseenter", function () {
-                projectsMenuItem.classList.add("hover");
-            });
-
-            projectsMenuItem.addEventListener("mouseleave", function () {
-                projectsMenuItem.classList.remove("hover");
-            });
         })
         .catch(error => {
             console.error('Error fetching the header content:', error);
@@ -80,41 +68,42 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             document.getElementById('contact-me').innerHTML = data;
             console.log("Contact Me loaded"); // Debugging: Contact Me loaded
+
+            // Move the form-related code here
+            const form = document.getElementById('contact-form');
+            console.log("Form element:", form); // Debugging: Check if form is found
+
+            if (form) {
+                console.log("Form element found");
+
+                form.addEventListener('submit', function(event) {
+                    console.log("Form submit event triggered"); // Debugging: Form submit event
+                    event.preventDefault();
+
+                    const templateParams = {
+                        name: form.name.value,
+                        email: form.email.value,
+                        message: form.message.value
+                    };
+                    console.log("Template Parameters:", templateParams); // Debugging: Template Parameters
+
+                    emailjs.send('service_7unekk1', 'template_u4rubzs', templateParams)
+                        .then(function(response) {
+                            console.log('SUCCESS!', response.status, response.text);
+                            alert('Yay, your message was sent!');
+                            setTimeout(function() {
+                                location.reload();
+                            }, 5000);
+                        }, function(error) {
+                            console.log('FAILED...', error);
+                            alert('There was some issue, sorry, please try again.');
+                        });
+                });
+            } else {
+                console.log("Form element not found");
+            }
         })
         .catch(error => {
             console.error('Error fetching the Contact Me content:', error);
         });
-
-    const form = document.getElementById('contact-form');
-    console.log("Form element:", form); // Debugging: Check if form is found
-
-    if (form) {
-        console.log("Form element found");
-
-        form.addEventListener('submit', function(event) {
-            console.log("Form submit event triggered"); // Debugging: Form submit event
-            event.preventDefault();
-
-            const templateParams = {
-                name: form.name.value,
-                email: form.email.value,
-                message: form.message.value
-            };
-            console.log("Template Parameters:", templateParams); // Debugging: Template Parameters
-
-            emailjs.send('service_7unekk1', 'template_u4rubzs', templateParams)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    alert('Yay, your message was sent!');
-                    setTimeout(function() {
-                        location.reload();
-                    }, 5000);
-                }, function(error) {
-                    console.log('FAILED...', error);
-                    alert('There was some issue, sorry, please try again.');
-                });
-        });
-    } else {
-        console.log("Form element not found");
-    }
 });

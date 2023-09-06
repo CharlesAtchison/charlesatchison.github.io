@@ -1,3 +1,5 @@
+// script.js
+
 console.log("Script started"); // Debugging: Script start
 
 var tablinks = document.getElementsByClassName("tab-links");
@@ -38,9 +40,54 @@ function closemenu() {
 document.addEventListener('DOMContentLoaded', function() {
     console.log("DOM fully loaded and parsed"); // Debugging: DOMContentLoaded
 
+    // Load the header using fetch
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header').innerHTML = data;
+            console.log("Header loaded"); // Debugging: Header loaded
+
+            // Initialize your scripts that rely on the header here
+            var projectsMenuItem = document.querySelector("#sidemenu li:nth-child(4)");
+            console.log("Projects menu item:", projectsMenuItem); // Debugging: Projects menu item
+
+            projectsMenuItem.addEventListener("mouseenter", function () {
+                projectsMenuItem.classList.add("hover");
+            });
+
+            projectsMenuItem.addEventListener("mouseleave", function () {
+                projectsMenuItem.classList.remove("hover");
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching the header content:', error);
+        });
+
+    // Load the copyright using fetch
+    fetch('copyright.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('copyright-content').innerHTML = data;
+            console.log("Copyright loaded"); // Debugging: Copyright loaded
+        })
+        .catch(error => {
+            console.error('Error fetching the copyright content:', error);
+        });
+
+    // Load the contact me using fetch
+    fetch('contact_me.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('contact-me').innerHTML = data;
+            console.log("Contact Me loaded"); // Debugging: Contact Me loaded
+        })
+        .catch(error => {
+            console.error('Error fetching the Contact Me content:', error);
+        });
+
     const form = document.getElementById('contact-form');
     console.log("Form element:", form); // Debugging: Check if form is found
-    
+
     if (form) {
         console.log("Form element found");
 

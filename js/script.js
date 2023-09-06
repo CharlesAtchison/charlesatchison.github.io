@@ -31,6 +31,23 @@ function closemenu() {
     sidemenu.style.right = "-200px";
 }
 
+// Custom Modal Function
+function displayCustomModal(message) {
+    const modal = document.createElement('div');
+    modal.className = 'custom-modal';
+    modal.innerHTML = `<div class="modal-content"><span class="close-button">&times;</span><p>${message}</p></div>`;
+    document.body.appendChild(modal);
+
+    modal.querySelector('.close-button').addEventListener('click', function() {
+        modal.remove();
+    });
+
+    setTimeout(function() {
+        modal.remove();
+        window.location.href = 'index.html';
+    }, 5000);
+}
+
 // EmailJS Initialization
 (function(){
     emailjs.init("C_1ovVKS4xIsyq0yV");
@@ -70,9 +87,9 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log("Contact Me loaded"); // Debugging: Contact Me loaded
 
             const form = document.getElementById('contact-form');
-    const submitButton = form.querySelector('button[type="submit"]');
+            const submitButton = form.querySelector('button[type="submit"]');
 
-    console.log("Form element:", form); // Debugging: Check if form is found
+            console.log("Form element:", form); // Debugging: Check if form is found
 
     if (form) {
         console.log("Form element found");
@@ -95,19 +112,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
 
-                    // Custom modal to display the message (you'll need to implement this)
-                    // displayCustomModal('Yay, your message was sent!');
-
-                    // For now, using alert
-                    alert('Yay, your message was sent!');
-
-                    // Navigate to index.html after 5 seconds
-                    setTimeout(function() {
-                        window.location.href = 'index.html';
-                    }, 5000);
+                    // Display custom modal
+                    displayCustomModal('Yay, your message was sent!');
                 }, function(error) {
                     console.log('FAILED...', error);
-                    alert('There was some issue, sorry, please try again.');
+                    displayCustomModal('There was some issue, sorry, please try again.');
 
                     // Re-enable the submit button
                     submitButton.disabled = false;

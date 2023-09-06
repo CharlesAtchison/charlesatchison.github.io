@@ -69,41 +69,52 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('contact-me').innerHTML = data;
             console.log("Contact Me loaded"); // Debugging: Contact Me loaded
 
-            // Move the form-related code here
             const form = document.getElementById('contact-form');
-            console.log("Form element:", form); // Debugging: Check if form is found
+    const submitButton = form.querySelector('button[type="submit"]');
 
-            if (form) {
-                console.log("Form element found");
+    console.log("Form element:", form); // Debugging: Check if form is found
 
-                form.addEventListener('submit', function(event) {
-                    console.log("Form submit event triggered"); // Debugging: Form submit event
-                    event.preventDefault();
+    if (form) {
+        console.log("Form element found");
 
-                    const templateParams = {
-                        name: form.name.value,
-                        email: form.email.value,
-                        message: form.message.value
-                    };
-                    console.log("Template Parameters:", templateParams); // Debugging: Template Parameters
+        form.addEventListener('submit', function(event) {
+            console.log("Form submit event triggered"); // Debugging: Form submit event
+            event.preventDefault();
 
-                    emailjs.send('service_7unekk1', 'template_u4rubzs', templateParams)
-                        .then(function(response) {
-                            console.log('SUCCESS!', response.status, response.text);
-                            alert('Yay, your message was sent!');
-                            setTimeout(function() {
-                                location.reload();
-                            }, 5000);
-                        }, function(error) {
-                            console.log('FAILED...', error);
-                            alert('There was some issue, sorry, please try again.');
-                        });
+            // Disable the submit button to prevent multiple submissions
+            submitButton.disabled = true;
+
+            const templateParams = {
+                name: form.name.value,
+                email: form.email.value,
+                message: form.message.value
+            };
+            console.log("Template Parameters:", templateParams); // Debugging: Template Parameters
+
+            emailjs.send('service_7unekk1', 'template_u4rubzs', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+
+                    // Custom modal to display the message (you'll need to implement this)
+                    // displayCustomModal('Yay, your message was sent!');
+
+                    // For now, using alert
+                    alert('Yay, your message was sent!');
+
+                    // Navigate to index.html after 5 seconds
+                    setTimeout(function() {
+                        window.location.href = 'index.html';
+                    }, 5000);
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('There was some issue, sorry, please try again.');
+
+                    // Re-enable the submit button
+                    submitButton.disabled = false;
                 });
-            } else {
-                console.log("Form element not found");
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching the Contact Me content:', error);
         });
+    } else {
+        console.log("Form element not found");
+    }
+    });
 });

@@ -35,7 +35,7 @@ function closemenu() {
 function displayCustomModal(message) {
     const modal = document.createElement('div');
     modal.className = 'custom-modal';
-    modal.innerHTML = `<div class="modal-content"><span class="close-button">&times;</span><p>${message}</p></div>`;
+    modal.innerHTML = `<div class="modal-content"><span class="close-button green-check">✓</span><p>${message}</p></div>`;
     document.body.appendChild(modal);
 
     modal.querySelector('.close-button').addEventListener('click', function() {

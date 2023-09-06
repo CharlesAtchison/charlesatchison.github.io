@@ -530,14 +530,14 @@ nav .fa-solid{
 .custom-modal {
     display: block;
     position: fixed;
-    z-index: 1001; /* To ensure it stays on top */
+    z-index: 1001; 
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(8, 8, 8, 0.8); /* Consistent with your background color */
-    color: #fff; /* Consistent with your text color */
-    font-family: 'Poppins', sans-serif; /* Consistent with your font */
+    background-color: rgba(8, 8, 8, 0.8); 
+    color: #fff; 
+    font-family: 'Poppins', sans-serif; 
 }
 
 .modal-content {
@@ -545,15 +545,14 @@ nav .fa-solid{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #262626; /* Consistent with your other backgrounds */
+    background-color: #262626; 
     padding: 20px;
     border-radius: 8px;
     text-align: center;
 }
 
-.close-button {
-    cursor: pointer;
-    color: #ED5A08; /* Consistent with your highlight color */
+.close-button.green-check {
+    color: green;
     font-size: 1.5em;
 }
 

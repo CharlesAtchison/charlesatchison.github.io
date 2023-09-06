@@ -526,6 +526,33 @@ form .btn2{
 nav .fa-solid{
     display: none;
 }
+
+.custom-modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.close-button {
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 600px){
     #header{
         background-image: url(images/favicon.png);

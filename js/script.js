@@ -92,10 +92,16 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('contact_me.html')
         .then(response => response.text())
         .then(data => {
+            
             document.getElementById('contact-me').innerHTML = data;
             console.log("Contact Me loaded"); // Debugging: Contact Me loaded
 
-            const form = document.getElementById('contact-form');
+            const contactMeDiv = document.getElementById('contact-me');
+            if (contactMeDiv) {
+                contactMeDiv.innerHTML = data;
+            } else {
+                console.error('Element with ID "contact-me" not found');
+            }
             const submitButton = form.querySelector('button[type="submit"]');
 
             console.log("Form element:", form); // Debugging: Check if form is found

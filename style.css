@@ -604,7 +604,7 @@ nav .fa-solid{
     /* Center the header text for mobile */
     .header-text {
         text-align: center; /* Center align text */
-        margin-top: 100%;
+        margin-top: 10%;
         font-size: 1.2em;
     }
     

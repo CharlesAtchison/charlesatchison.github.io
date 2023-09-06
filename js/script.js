@@ -24,6 +24,10 @@ function closemenu() {
     sidemenu.style.right = "-200px";
 }
 
+(function(){
+    emailjs.init("C_1ovVKS4xIsyq0yV");
+ })();
+
 document.addEventListener('DOMContentLoaded', function() {
     // Load the header using fetch
     fetch('header.html')
@@ -64,50 +68,39 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Error fetching the Contact Me content:', error);
         });
-});
 
-(function (w, d, s, o, f, js, fjs) {
-    w["botsonic_widget"] = o;
-    w[o] = w[o] || function () {
-        (w[o].q = w[o].q || []).push(arguments);
-    };
-    js = d.createElement(s);
-    fjs = d.getElementsByTagName(s)[0];
-    js.id = o;
-    js.src = f;
-    js.async = 1;
-    fjs.parentNode.insertBefore(js, fjs);
-})(window, document, "script", "Botsonic", "https://d1m9uqhmlogh4h.cloudfront.net/CDN/botsonic.min.js");
-
-Botsonic("init", {
-    serviceBaseUrl: "https://api.writesonic.com",
-    token: "9fed897a-7f4c-46f0-a77f-10789e28fa5b",
-});
-
-(function(){
-    emailjs.init("C_1ovVKS4xIsyq0yV");
- })();
-
- document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contact-form');
     
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      
-      // Create an object to hold the form data
-      const templateParams = {
-        name: form.name.value,
-        email: form.email.value,
-        message: form.message.value
-      };
-      
-      // Use emailjs.send() method
-      emailjs.send('service_7unekk1', 'template_u4rubzs', templateParams) // Replace 'your_template_id' with your actual template ID
-        .then(function() {
-          console.log('Email successfully sent!');
-        }, function(error) {
-          console.log('Error sending email:', error);
+    if (form) { // Check if the form exists on the page
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Create an object to hold the form data
+            const templateParams = {
+                name: form.name.value,
+                email: form.email.value,
+                message: form.message.value
+            };
+            
+            // Use emailjs.send() method
+            emailjs.send('service_7unekk1', 'template_u4rubzs', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    
+                    // Display success message
+                    alert('Yay, your message was sent!');
+                    
+                    // Refresh the page after 5 seconds
+                    setTimeout(function() {
+                        location.reload();
+                    }, 5000);
+                    
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    
+                    // Display failure message
+                    alert('There was some issue, sorry, please try again.');
+                });
         });
-    });
-  });
-  
+    }
+});

@@ -590,13 +590,24 @@ nav .fa-solid{
 }
 
 @media only screen and (max-width: 600px){
-    #header{
-        background-image: url(images/favicon.png);
+    /* Center the submit button for mobile */
+    form .btn2 {
+        display: block;
+        margin: 1.3em auto; /* Center the button */
     }
-    .header-text{
+
+    /* Remove random background image in the header */
+    #header::before {
+        background-image: none; /* Remove background image */
+    }
+
+    /* Center the header text for mobile */
+    .header-text {
+        text-align: center; /* Center align text */
         margin-top: 100%;
         font-size: 1.2em;
     }
+    
     .header-text h1{
         font-size: 2.5em;
     }
@@ -625,23 +636,62 @@ nav .fa-solid{
         left: 1em;
         cursor: pointer;
     }
-    .sub-title{
-        font-size: 2.2em;
+
+    .sub-title {
+        font-size: 1.8em; /* Reduced font size */
+        text-align: center; /* Center align text */
     }
-    .about-col-1, .about-col-2{
-        flex-basis: 100%;
+    
+    .container {
+        padding: 10px 5%; /* Reduced padding */
     }
-    .about-col-1{
-        margin-bottom: 2em;
+    
+    .tab-links {
+        font-size: 1em; /* Reduced font size */
+        margin-right: 10px; /* Reduced margin */
     }
-    .about-col-2{
-        font-size: 1.1em;
+    
+    /* Reduce the size of email and phone icons in "Contact Me" */
+    .contact-left p i {
+        font-size: 1.2em; /* Adjust the size as needed */
     }
-    .tab-links{
-        font-size: 1.2em;
-        margin-right: 20px;
+
+    /* Make "Contact Me" a single column and fill the page */
+    .contact-left, .contact-right {
+        flex-basis: 100%; /* Single column layout */
     }
-    .contact-left, .contact-right{
-        flex-basis: 100%;
+    /* Center the Download Resume button */
+    .btn.btn2 {
+        display: block;
+        margin: 1em auto; /* Center the button */
+    }
+
+    /* Center the "My Work" sub-title in Portfolio */
+    .work-title {
+        text-align: center; /* Center align text */
+    }
+
+    /* Make the form fill the page */
+    form {
+        width: 100%;
+    }
+
+    form input, form textarea {
+        width: 100%; /* Make input and textarea elements fill the width */
+        padding: 1em; /* Adjust padding as needed */
+    }
+    
+    .social-icons a {
+        font-size: 1.5em; /* Reduced font size for easier tapping */
+    }
+    
+    .about-col-1 img, .work img {
+        border-radius: 1em; /* Added border-radius for images */
+        max-width: 100%; /* Make images responsive */
+    }
+
+    /* Make "My work" section a single column on mobile */
+    .work-list {
+        grid-template-columns: 1fr; /* Single column layout */
     }
 }

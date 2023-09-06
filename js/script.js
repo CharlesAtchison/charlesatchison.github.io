@@ -66,6 +66,23 @@ function displayLoadingSpinner() {
 document.addEventListener('DOMContentLoaded', function() {
     console.log("DOM fully loaded and parsed"); // Debugging: DOMContentLoaded
 
+    // Get the sidemenu element that should toggle the dropdown
+    const portfolioMenuItem = document.querySelector('#sidemenu li[data-toggle="dropdown"]');
+
+    // Get the dropdown element
+    const dropdownMenu = document.querySelector('#sidemenu .dropdown');
+
+    if (portfolioMenuItem && dropdownMenu) {
+        // Add click event listener to toggle dropdown
+        portfolioMenuItem.addEventListener('click', function() {
+            if (dropdownMenu.style.display === 'block') {
+                dropdownMenu.style.display = 'none';
+            } else {
+                dropdownMenu.style.display = 'block';
+            }
+        });
+    }
+
     // Load the header using fetch
     fetch('header.html')
         .then(response => response.text())

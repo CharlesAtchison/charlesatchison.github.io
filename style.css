@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 body {
-    padding-top: 3em; /* same value as the height of the header */
+    padding-top: 1em; /* same value as the height of the header */
     background-color: #080808;
     color: #fff;
 }
@@ -22,6 +22,7 @@ body {
   #header::before {
     content: '';
     position: absolute;
+    top: 0;
     top: 0;
     left: 0;
     right: 0;
